@@ -30,17 +30,11 @@ $(document).ready(function () {
 				url: "https://formspree.io/diogoredin@gmail.com",
 				method: "POST",
 				data: { message: message },
-				dataType: "json"
-			}, function (data) {
-
-				// Display returned message
-				$("#returnmessage").append(data);
-
-				// Reset the fields if the message was successfuly sent
-				if (data == "<div class='contact_message'>Your message was successfully sent!</div>") {
+				dataType: "json",
+				success: function (data) {
+					$("#returnmessage").append(data);
 					$("#contact_form")[0].reset();
 				}
-
 			});
 
 		}
