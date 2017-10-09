@@ -11,7 +11,7 @@ $(document).ready(function() {
 	'use strict';
 
 	// Form is submitted
-	$('#contact_form').on("submit", function(){
+	$('.btn-default').on("click", function(){
 
 		// Store name, email and message
 		var name = $("#name").val();
