@@ -26,22 +26,8 @@ $(document).ready(function() {
 			alert("Please fill the required fields.");
 		} else {
 
-			// Process the data
-			$.post("../../process/contact_form.php", {
-				name1: name,
-				email1: email,
-				message1: message
-			}, function(data) {
-
-				// Display returned message
-				$("#returnmessage").append(data);
-				
-				// Reset the fields if the message was successfuly sent
-				if (data == "<div class='contact_message'>Your message was successfully sent!</div>") {
-					$("#contact_form")[0].reset();
-				}
-
-			});
+			$("#contact_form")[0].reset();
+			$("#returnmessage").append("<div class='contact_message'>Your message was successfully sent!</div>");
 		
 		}
 
