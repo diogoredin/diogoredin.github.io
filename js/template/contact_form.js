@@ -25,10 +25,7 @@ $(document).ready(function() {
 		if (name == '' || email == '') {
 			alert("Please fill the required fields.");
 		} else {
-
-			$("#contact_form")[0].reset();
 			$("#returnmessage").append("<div class='contact_message'>Your message was successfully sent!</div>");
-		
 		}
 
 	// Ends Submission
