@@ -33,6 +33,12 @@ $(document).ready(function() {
 	$("#app_content").waypoint(function() {
 		$('#app_content').addClass('fadeInLeft animated');
 		$('.app_image').addClass('fadeInRight animated');
-	}, { offset: '100%'});
+	}, { offset: '100%' });
+	
+	// WayPoint Discover App
+	$("#testimonials").waypoint(function () {
+		$('#testimonials_header').addClass('fadeInLeft animated');
+		$('.testimonials_content').addClass('fadeInRight animated');
+	}, { offset: '100%' });
 
 });
