@@ -1,0 +1,392 @@
+/******************************************************
+
+TABLE OF CONTENTS
+
+1. EXTRA SMALL DEVICES
+    1.1. HEADER
+    1.2. TABS
+    1.3. AREAS OF EXPERTISE
+    1.4. DISCOVER OUR APP
+    1.5. CONTACT
+    1.6. HOW IT WORKS
+    1.7. TESTIMONIALS
+    1.8. FOOTER
+
+2. SMALL DEVICES
+    2.1. DISCOVER
+    2.2. TESTIMONIALS
+
+********************************************************/
+
+/******************************************************
+*
+* 1. Extra small devices (phones, less than 768px) 
+*
+******************************************************/
+
+@media (max-width: 700px) {
+
+/* 1.1. Header */
+
+header {
+    background: #FFFFFF;
+}
+
+h1#hero_text {
+    margin-bottom: 35px;
+    margin-left: 0;
+    text-align: left;
+    width: 100%;
+}
+
+section#lower_header {
+    margin-top: 25%;
+}
+
+section#lower_header {
+    margin-top: 0px;
+    margin-bottom: 100px;
+}
+
+/* 2.1. Sign In */
+
+.signin_box {
+    margin-right: 0px;
+}
+
+/* 1.4. Discover Our App */
+
+section#discover_our_app .app_image {
+    float: right;
+    height: 465px;
+    padding-right: 15%;
+    padding-top: 30px;
+    width: auto;
+    height: auto;
+}
+
+section#discover_our_app #app_content {
+    margin-top: 0px;
+}
+
+section#discover_our_app .app_icon {
+
+    margin-top: 0px;
+}
+
+section#discover_our_app {
+    padding-bottom: 80px;
+    padding-top: 100px;
+}
+
+/* 1.6. How it Works */
+
+#how_it_works h1 {
+    margin-bottom: 30px;
+}
+
+/* 1.7. Testimonials */
+
+section#testimonials p.testimonial {
+    margin-bottom: 10px;
+}
+
+section#testimonials p.testimonial_name {
+    padding-bottom: 20px;
+}
+
+section#testimonials {
+    padding-bottom: 65px;
+}
+
+/* 1.8. Footer */
+
+body.blog footer {
+    margin-top: 65px;
+}
+
+footer .col-md-4 {
+    clear: both;
+    float: none;
+    height: auto;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+footer .widgets_area h1.footer_logo {
+    margin-top: 28px;
+}
+
+/* 2. Blog */
+
+ul.inner_page_social_icons {
+    float: left;
+    width: 100%;
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+ul.inner_page_social_icons li {
+    float: left;
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+ul.inner_page_social_icons li img {
+    width: 49px;
+}
+
+.categories_dropdown {
+    margin-bottom: 90px;
+    float: left;
+}
+
+.categories_dropdown {
+    margin-bottom: 90px;
+    float: left;
+    font-family: RobotoRegular, Arial;
+}
+
+.categories_dropdown span {
+    margin-right: 3px;
+}
+
+.categories_dropdown .dropdown-menu {
+    left: 0 !important;
+    right: auto !important;
+}
+
+h1.blog_latest_posts_title {
+    margin-top: 80px;
+}
+
+/* 2. Header News Feed */
+
+section#newsfeed_header .user_logged_in_menu {
+	float: left;
+	margin-top: 10px;
+	padding-top: 0px;
+    padding-bottom: 0px;
+    width: 100%;
+}
+
+section#newsfeed_header .newsfeed_logo {
+	margin: 0 auto;
+	padding-top: 0px;
+}
+
+section#newsfeed_header ul.newsfeed_menu {
+	float: left;
+	margin-top: 40px;
+	padding: 0px;
+    width: 100%;
+}
+
+section#newsfeed_header {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    margin-bottom: 30px;
+}
+
+/* 3. News Feed Columns */
+
+.news_feed_inner .col-md-4,
+.news_feed_inner .col-md-8 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+/* 3. News Feed Post */
+
+.post_update_actions .row .col-md-8 {
+}
+
+.newsfeed_post_button_left button {
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+}
+
+.newsfeed_post_button_right button {
+    border-top: 1px solid #E1E8ED;
+    border-radius: 0px 0px 6px 6px;
+}
+
+}
+
+/******************************************************
+*
+* 2. Small devices (tablets, 768px and up)
+*
+******************************************************/
+
+@media (min-width: 700px) and (max-width: 1000px) {
+
+/* 2.1. Sign In */
+
+.signin_box {
+    margin-right: 0px;
+}
+
+/* 2.1. Discover */
+
+header {
+    background: #FFFFFF;
+}
+
+section#lower_header {
+    margin-top: 0px;
+    margin-bottom: 100px;
+}
+
+/* 2.2. Discover */
+
+section#discover_our_app #app_content {
+	margin-top: 0px;
+}
+
+section#discover_our_app {
+    padding-bottom: 0;
+    padding-top: 100px;
+}
+
+section#discover_our_app .app_image {
+    margin-top: 35px;
+    padding-right: 15%;
+    float: left;
+    height: 430px;
+}
+
+/* 2.2. Testimonials */
+
+section#testimonials {
+    padding-bottom: 65px;
+}
+
+section#testimonials p.testimonial {
+    margin-bottom: 10px;
+}
+
+section#testimonials p.testimonial_name {
+    padding-bottom: 20px;
+}
+
+/* 2.3. Footer */
+
+body.blog footer {
+    margin-top: 65px;
+}
+
+footer .col-md-4 {
+    clear: both;
+    float: none;
+    height: auto;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+footer .widgets_area h1.footer_logo {
+    margin-top: 28px;
+}
+
+.input-group {
+    width: 50%;
+}
+
+/* 2. Blog */
+
+ul.inner_page_social_icons {
+    float: left;
+    width: 100%;
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+ul.inner_page_social_icons li {
+    float: left;
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+ul.inner_page_social_icons li img {
+    width: 49px;
+}
+
+.categories_dropdown {
+    margin-bottom: 90px;
+    float: left;
+    font-family: RobotoRegular, Arial;
+}
+
+.categories_dropdown span {
+    margin-right: 3px;
+}
+
+.categories_dropdown .dropdown-menu {
+    left: 0 !important;
+    right: auto !important;
+}
+
+h1.blog_latest_posts_title {
+    margin-top: 80px;
+}
+
+/* 2. Header News Feed */
+
+section#newsfeed_header .user_logged_in_menu {
+	float: left;
+	margin-top: 10px;
+	padding-top: 0px;
+    padding-bottom: 0px;
+    width: 100%;
+}
+
+section#newsfeed_header .newsfeed_logo {
+	margin: 0 auto;
+	padding-top: 0px;
+}
+
+section#newsfeed_header ul.newsfeed_menu {
+	float: left;
+	margin-top: 40px;
+	padding: 0px;
+    width: 100%;
+}
+
+section#newsfeed_header {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    margin-bottom: 30px;
+}
+
+/* 3. News Feed Columns */
+
+.news_feed_inner .col-md-4,
+.news_feed_inner .col-md-8 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+/* 3. News Feed Post */
+
+.post_update_actions .row .col-md-8 {
+}
+
+.newsfeed_post_button_left button {
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+}
+
+.newsfeed_post_button_right button {
+    border-top: 1px solid #E1E8ED;
+    border-radius: 0px 0px 6px 6px;
+}
+
+}
