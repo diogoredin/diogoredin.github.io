@@ -30,6 +30,12 @@ $(document).ready(function() {
 	$('ul#menu a, ul.dropdown-menu a, a#top').smoothScroll();
 
 	// WayPoint Discover App
+	$("#top_header").waypoint(function () {
+		$('.logo').addClass('fadeInRight animated');
+		$('#hero_text').addClass('fadeInLeft animated');
+	}, { offset: '100%' });
+
+	// WayPoint Discover App
 	$("#app_content").waypoint(function() {
 		$('#app_content').addClass('fadeInLeft animated');
 		$('.app_image').addClass('fadeInRight animated');
