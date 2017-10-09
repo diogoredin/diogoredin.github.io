@@ -32,7 +32,7 @@ $(document).ready(function () {
 				data: { message: message },
 				dataType: "json",
 				success: function (data) {
-					$("#returnmessage").append(data);
+					$("#returnmessage").append("<div class='contact_message'>Your message was successfully sent!</div>");
 					$("#contact_form")[0].reset();
 				}
 			});
