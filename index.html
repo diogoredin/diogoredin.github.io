@@ -691,10 +691,10 @@
 
 			<p id="returnmessage"></p>
 
-			<form id="contact_form">
-				<input id="name" type="text" class="form-control" placeholder="Your name">
-				<input id="email" type="text" class="form-control" placeholder="E-mail">
-				<textarea id="message" class="form-control" placeholder="Message"></textarea>
+			<form id="contact_form" action="https://formspree.io/diogoredin@gmail.com" method="POST">
+				<input name="name" id="name" type="text" class="form-control" placeholder="Your name">
+				<input name="_replyto" id="email" type="text" class="form-control" placeholder="E-mail">
+				<textarea name="name" id="message" class="form-control" placeholder="Message"></textarea>
 				<input type="submit" id="submit" value="Get in touch" class="btn btn-default">
 			</form>
 
