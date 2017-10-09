@@ -90,7 +90,6 @@ body.home header {
     font-family: RobotoLight,Arial;
     font-size: 30px;
     text-transform: uppercase;
-    padding-left: 15px;
     padding-top: 106px;
 }
 
@@ -576,6 +575,7 @@ h1#hero_text {
 
 section#lower_header {
     margin-top: 40px;
+    width: 70%;
 }
 
 #lower_header a {
@@ -844,7 +844,6 @@ section#how_it_works .center_three {
     outline: 0;
 }
 
-
 .tabs_grid_block {
     background: #ffffff none repeat scroll 0 0;
     border-radius: 6px;
@@ -863,7 +862,7 @@ h4.block_tile {
     text-align: center;
 }
 
-h4.block_tile a {
+h4.block_tile, h4.block_tile a {
     color: #5e6977;
 }
 
@@ -2311,44 +2310,46 @@ section#github {
     text-align: center;
 }
 
+section#github h1 a {
+    color: #43484D;
+    text-decoration: none;
+}
+
+section#github h1 a:hover {
+    color: #5e6977;
+}
+
 #github p {
     color: #5e6977;
     font-family: RobotoMedium,Arial;
     text-align: center;
 }
 
-section#github ul {
-    list-style: outside none none;
-    margin-left: 3.5%;
-    width: 95%;
+section#github .col-md-4 {
+    display: inline-block;
 }
 
-section#github ul li {
+section#github .git_inner {
     background: #ffffff none repeat scroll 0 0;
     border: 1px solid #dddddd;
     border-radius: 3px;
-    display: inline-block;
-    margin-bottom: 2%;
-    margin-left: 1%;
-    margin-right: 1%;
-    padding: 2%;
-    vertical-align: top;
-    width: 29%;
+    margin: 2%;
+    padding: 6%;
 }
 
-section#github ul li a {
+section#github .git_inner a {
     font-family: RobotoRegular,Arial;
     font-size: 16px;
 }
 
-section#github ul li p {
+section#github .git_inner p {
     text-align: left;
     font-weight: normal;
     font-family: RobotoRegular,Arial;
     padding-top: 10px;
 }
 
-section#github ul li .repo-language-color {
+section#github .git_inner .repo-language-color {
     width: 12px;
     height: 12px;
     border-radius: 7px;
