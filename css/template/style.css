@@ -352,14 +352,16 @@ footer .footer_logo {
     font-family: Forte, Arial;
     font-size: 48px;
     line-height: 57px;
+    font-size: 24px;
 }
 
-footer .footer_logo a {
+footer a {
     color: #ffffff;
 }
 
-footer .footer_logo a:hover {
+footer a:hover {
     text-decoration: none;
+    color: #bdc6cf;
 }
 
 footer h4 {
@@ -371,7 +373,7 @@ footer h4 {
 footer p {
     color: #bdc6cf;
     font-family: RobotoRegular,Arial;
-    font-size: 13px;
+    font-size: 24px;
 }
 
 footer .input-group input {
@@ -416,13 +418,13 @@ input.newsletter_submit {
 
 .footer_bottom {
     background: #43484D;
-    padding-bottom: 35px;
+    padding-bottom: 45px;
 }
 
 ul.footer_social {
     list-style: outside none none;
     padding-left: 10px;
-    width: 125px;
+    width: 190px;
     float: none;
     margin: 0 auto;
 }
@@ -431,31 +433,7 @@ ul.footer_social li {
     float: left;
     margin-left: 10px;
     margin-right: 10px;
-}
-
-ul.footer_social li.fb {
-    width: 8px;
-    height: 16px;
-}
-
-ul.footer_social li.tw {
-    width: 19px;
-    height: 13px;
-}
-
-ul.footer_social li.rss {
-    width: 14px;
-    height: 14px;
-}
-
-ul.footer_social li.ig {
-    width: 16px;
-    height: 16px;
-}
-
-ul.footer_social li.ggl {
-    width: 19px;
-    height: 16px;
+    font-size: 24px;
 }
 
 p.copyright {
@@ -899,7 +877,7 @@ h1.discover_app {
 }
 
 section#discover_our_app #app_content {
-    margin-top: 20px;
+    margin-top: 60px;
 }
 
 section#discover_our_app .app_icon {
@@ -934,7 +912,6 @@ section#discover_our_app #app_content a:hover {
 
 section#discover_our_app .app_image {
     float: right;
-    padding-right: 15%;
     width: 418px;
     height: 467px;
 }
