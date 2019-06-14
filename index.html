@@ -12,23 +12,10 @@
 		<link rel="stylesheet" href="css/slider.css">
 		<link href="https://fonts.googleapis.com/css?family=Nunito|PT+Sans&display=swap" rel="stylesheet">
 
-		<script src="https://code.jquery.com/jquery-1.9.0.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 		<script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 		<script src="js/slider.min.js"></script>
-
-		<script>
-		$(document).ready(function(){
-			$('.slider-signin').sss({
-				slideShow : false,
-			});
-			$('.slider-secret').sss({
-				slideShow : false,
-			});
-			$('.slider-vitflow').sss({
-				slideShow : false,
-			});
-		});
-		</script>
+		<script src="js/main.js"></script>
 
 		<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
@@ -52,8 +39,8 @@
 			<div class="navbar-end">
 				<div class="choicer">
 					<div class="buttons has-addons">
-						<span class="button is-info is-selected">Personal</span>
-						<span class="button">Studio</span>
+						<span id="personal" class="button is-info is-selected">Personal</span>
+						<span id="studio" class="button">Studio</span>
 					</div>
 				</div>
 			</div>
@@ -63,18 +50,18 @@
 
 	<section class="header">
 		<div class="container">
-
+	
 			<div class="columns">
-
+	
 				<div class="column is-5 profile">
 					<img src="img/diogoredin.png" />
 				</div>
-
+	
 				<div class="column intro is-5">
-
+	
 					<h1 class="title">Hello, I'm Diogo Redin</h1>
 					<h2 class="subtitle">A Full-Stack developer passionate about product development.</h2>
-
+	
 					<p class="buttons">
 						<a class="button is-medium is-info">
 							<span class="icon">
@@ -89,19 +76,19 @@
 							<span>Download CV</span>
 						</a>
 					</p>
-
+	
 				</div>
 			</div>
-
+	
 		</div>
 	</section>
-
+	
 	<section class="portfolio">
 		<div class="container">
-
+	
 			<div class="portfolio-item">
 				<div class="columns">
-
+	
 					<div class="column is-5 item-details">
 						<div class="slider-signin">
 							<img src="portfolio/whatsignin_promo.png" />
@@ -122,7 +109,7 @@
 							</a>
 						</div>
 					</div>
-
+	
 					<div class="column item-description">
 						<h1 class="title">WhatSign.in</h1>
 						<p>I developed this extension after struggling with having to remember which social network I used to login into websites. The first time you visit a website and login using a social authenticator (Facebook, Twitter, Google etc.) it registers the one you choose. When you visit the website again later on you can open the extension and it will tell you the social authenticator you have used before. If you click on 'Forget' it will forget your chosen social authenticator and you can now choose a different one, which the extension will register.</p>
@@ -131,13 +118,13 @@
 							<span class="tag is-rounded">Chromium API</span>
 						</div>
 					</div>
-
+	
 				</div>
 			</div>
-
+	
 			<div class="portfolio-item">
 				<div class="columns">
-
+	
 					<div class="column item-description">
 						<h1 class="title">SecretSanta.run</h1>
 						<p>I have built this Secret Santa Generator because I wanted a better alternative. The alternatives I use always require me to know my friend's email addresses which is something I don't usually know. I built a web application where users can write down their friend's phone numbers and the app will message each person their match. Participants can then message back the app their gift preferences and the person that is responsible for gifting them will receive the message. This process doesn't require any sign up and the organizer of the event can download the matches as backup.</p>
@@ -148,7 +135,7 @@
 							<span class="tag is-rounded">Twilio</span>
 						</div>
 					</div>
-
+	
 					<div class="column is-5 item-details">
 						<div class="slider-secret">
 							<img src="portfolio/secretsanta_features.png" />
@@ -170,13 +157,13 @@
 							</a>
 						</div>
 					</div>
-
+	
 				</div>
 			</div>
-
+	
 			<div class="portfolio-item">
 				<div class="columns">
-
+	
 					<div class="column is-5 item-details">
 						<div class="slider-vitflow">
 							<img src="portfolio/vitflow_2.png" />
@@ -198,7 +185,7 @@
 							</a>
 						</div>
 					</div>
-
+	
 					<div class="column item-description">
 						<h1 class="title">ViTFlow</h1>
 						<p>ViTFlow is a project that explores new ways to visualise data regarding populations and their activity. The visualizations available allow users to select a time range and see data referent to that period. These visualizations can also be overlapped to find correlations between events. Project developed by Diogo Redin and Diogo Vilela during a 2017 Summer Internship in M-ITI under the supervision of Nuno Jardim Nunes, Ph.D, Catia Prandi, Ph.D and Miguel Ribeiro, M.Sc.</p>
@@ -209,12 +196,90 @@
 							<span class="tag is-rounded">Node.js</span>
 						</div>
 					</div>
+	
+				</div>
+			</div>
+	
+		</div>
+	</section>
+	
+	<section class="about">
+		<div class="container">
+	
+			<div class="columns">
+				<div class="column is-5">
+					<h1 class="title">About Me</h1>
+					<p>I started coding 8+ years ago, doing WordPress theme development. I have a Bachelor's in Computer Engineering from Instituto Superior Técnico (11st place in the <a href="https://www.usnews.com/education/best-global-universities/engineering?int=994b08">US News EU Engineering universities ranking</a>). My current focus is to help people who have ideas for new digital products build minimum viable products to test product market fit.</p>
+				</div>
+	
+				<div class="column">
+					<h1 class="title">Current Focus</h1>
+					<ul>
+						<li>Expand my skillset and learn best-practices in Front-end development;</li>
+						<li>Find a startup where I can do the above while experiencing a fast-paced culture;</li>
+						<li>Develop my new consulting service focused on rapid MVP development.</li>
+					</ul>
+				</div>
+	
+				<div class="column">
+					<h1 class="title">Long-term Career Goals</h1>
+					<ul>
+						<li>Work in a tech accelerator or research team inside a established company;</li>
+						<li>Work with people that have expertise in venture building and scaling digital businesses;</li>
+						<li>Start a business, sell a business, invest in startups, exit in startups.</li>
+					</ul>
+				</div>
+	
+			</div>
+	
+		</div>
+	</section>
+	
+	<section class="pictures">
+		<div class="columns is-gapless">
+			<div class="column">
+				<img src="insta/code.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/ibm.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/caleidoscopio.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/websummit.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/understand.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/vitflow.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/study.jpg" />
+			</div>
+		</div>
+	</section>
 
+	<footer>
+		<div class="container">
+
+			<div class="level">
+				<div class="level-left">
+					<p class="level-item"><a><span class="icon"><i class="fab fa-twitter"></i></span><span>Twitter</span></a></p>
+					<p class="level-item"><a><span class="icon"><i class="fab fa-product-hunt"></i></span><span>ProductHunt</span></a></p>
+					<p class="level-item"><a><span class="icon"><i class="fab fa-linkedin"></i></span><span>LinkedIn</span></a></p>
+					<p class="level-item"><a><span class="icon"><i class="fab fa-instagram"></i></span><span>Instagram</span></a></p>
+					<p class="level-item"><a><span class="icon"><i class="fas fa-envelope"></i></span><span>contact@diogoredin.com</span></a></p>
+				</div>
+				<div class="level-right">
+					<p class="level-item"><a>Terms and Conditions</a></p>
+					<p class="level-item"><a>Privacy Policy</a></p>
 				</div>
 			</div>
 
 		</div>
-	</section>
+	</footer>
 
 </body>
 </html>

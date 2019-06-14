@@ -71,6 +71,43 @@
 }
 
 .slider-signin, .slider-secret, .slider-vitflow {
-	border: 5px solid whitesmoke;
-	border-radius: 2px;
+}
+
+.about {
+	margin-top: 60px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: whitesmoke;
+}
+
+.about ul {
+	padding-left: 1em;
+	list-style-type: circle;
+}
+
+.about h1.title {
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.pictures {
+	margin-bottom: -10px;
+}
+
+footer {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background: #222222;
+}
+
+footer .icon {
+	vertical-align: middle;
+}
+
+footer a, footer p {
+	color: #999999;
+}
+
+footer a:hover, footer a:active, footer a:visited {
+	color: #ffffff;
 }
