@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="has-navbar-fixed-top">
 
 	<head>
 		<meta charset="utf-8">
@@ -9,8 +9,26 @@
 
 		<link rel="stylesheet" href="css/bulma.css">
 		<link rel="stylesheet" href="css/style.css">
-		<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+		<link rel="stylesheet" href="css/slider.css">
 		<link href="https://fonts.googleapis.com/css?family=Nunito|PT+Sans&display=swap" rel="stylesheet">
+
+		<script src="https://code.jquery.com/jquery-1.9.0.min.js"></script>
+		<script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+		<script src="js/slider.min.js"></script>
+
+		<script>
+		$(document).ready(function(){
+			$('.slider-signin').sss({
+				slideShow : false,
+			});
+			$('.slider-secret').sss({
+				slideShow : false,
+			});
+			$('.slider-vitflow').sss({
+				slideShow : false,
+			});
+		});
+		</script>
 
 		<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
@@ -22,22 +40,26 @@
 
 <body>
 
-	<nav class="level header-level navbar is-fixed-top">
-		<div class="level-left">
-			<div class="level-item logo">
-				<img src="img/logo.png" />
-			</div>
-		</div>
+	<div class="header-level navbar is-fixed-top">
+		<div class="container">
 
-		<div class="level-right">
-			<div class="level-item choicer">
-				<div class="buttons has-addons">
-					<span class="button is-info is-selected">Personal</span>
-					<span class="button">Studio</span>
+			<div class="navbar-brand">
+				<div class="logo">
+					<img src="img/logo.png" />
 				</div>
 			</div>
+
+			<div class="navbar-end">
+				<div class="choicer">
+					<div class="buttons has-addons">
+						<span class="button is-info is-selected">Personal</span>
+						<span class="button">Studio</span>
+					</div>
+				</div>
+			</div>
+
 		</div>
-		</nav>
+	</div>
 
 	<section class="header">
 		<div class="container">
@@ -56,17 +78,137 @@
 					<p class="buttons">
 						<a class="button is-medium is-info">
 							<span class="icon">
-								<i class="fas fa-stream"></i>
+								<i class="fas fa-ellipsis-h"></i>
 							</span>
 							<span>Know more</span>
 						</a>
 						<a class="button is-medium is-success">
 							<span class="icon">
-								<i class="fas fa-file-download"></i>
+								<i class="fas fa-download"></i>
 							</span>
 							<span>Download CV</span>
 						</a>
 					</p>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<section class="portfolio">
+		<div class="container">
+
+			<div class="portfolio-item">
+				<div class="columns">
+
+					<div class="column is-5 item-details">
+						<div class="slider-signin">
+							<img src="portfolio/whatsignin_promo.png" />
+							<img src="portfolio/whatsignin_shot.png" />
+						</div>
+						<div class="item-links">
+							<a href="#" class="button is-info">
+								<span class="icon is-small">
+									<i class="fas fa-external-link-alt"></i>
+								</span>
+								<span>Website</span>
+							</a>
+							<a href="#" class="button is-info">
+								<span class="icon is-small">
+									<i class="fas fa-code"></i>
+								</span>
+								<span>Source Code</span>
+							</a>
+						</div>
+					</div>
+
+					<div class="column item-description">
+						<h1 class="title">WhatSign.in</h1>
+						<p>I developed this extension after struggling with having to remember which social network I used to login into websites. The first time you visit a website and login using a social authenticator (Facebook, Twitter, Google etc.) it registers the one you choose. When you visit the website again later on you can open the extension and it will tell you the social authenticator you have used before. If you click on 'Forget' it will forget your chosen social authenticator and you can now choose a different one, which the extension will register.</p>
+						<div class="tags are-medium">
+							<span class="tag is-rounded">Javascript ES6</span>
+							<span class="tag is-rounded">Chromium API</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="portfolio-item">
+				<div class="columns">
+
+					<div class="column item-description">
+						<h1 class="title">SecretSanta.run</h1>
+						<p>I have built this Secret Santa Generator because I wanted a better alternative. The alternatives I use always require me to know my friend's email addresses which is something I don't usually know. I built a web application where users can write down their friend's phone numbers and the app will message each person their match. Participants can then message back the app their gift preferences and the person that is responsible for gifting them will receive the message. This process doesn't require any sign up and the organizer of the event can download the matches as backup.</p>
+						<div class="tags are-medium">
+							<span class="tag is-rounded">Javascript ES6</span>
+							<span class="tag is-rounded">Node.js</span>
+							<span class="tag is-rounded">React</span>
+							<span class="tag is-rounded">Twilio</span>
+						</div>
+					</div>
+
+					<div class="column is-5 item-details">
+						<div class="slider-secret">
+							<img src="portfolio/secretsanta_features.png" />
+							<img src="portfolio/secretsanta_options.png" />
+							<img src="portfolio/secretsanta_sms.png" />
+						</div>
+						<div class="item-links">
+							<a href="#" class="button is-info">
+								<span class="icon is-small">
+									<i class="fas fa-external-link-alt"></i>
+								</span>
+								<span>Website</span>
+							</a>
+							<a href="#" class="button is-info">
+								<span class="icon is-small">
+									<i class="fas fa-code"></i>
+								</span>
+								<span>Source Code</span>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="portfolio-item">
+				<div class="columns">
+
+					<div class="column is-5 item-details">
+						<div class="slider-vitflow">
+							<img src="portfolio/vitflow_2.png" />
+							<img src="portfolio/vitflow_3.png" />
+							<img src="portfolio/vitflow_1.png" />
+						</div>
+						<div class="item-links">
+							<a href="#" class="button is-info">
+								<span class="icon is-small">
+									<i class="fas fa-external-link-alt"></i>
+								</span>
+								<span>Website</span>
+							</a>
+							<a href="#" class="button is-info">
+								<span class="icon is-small">
+									<i class="fas fa-download"></i>
+								</span>
+								<span>Published Paper</span>
+							</a>
+						</div>
+					</div>
+
+					<div class="column item-description">
+						<h1 class="title">ViTFlow</h1>
+						<p>ViTFlow is a project that explores new ways to visualise data regarding populations and their activity. The visualizations available allow users to select a time range and see data referent to that period. These visualizations can also be overlapped to find correlations between events. Project developed by Diogo Redin and Diogo Vilela during a 2017 Summer Internship in M-ITI under the supervision of Nuno Jardim Nunes, Ph.D, Catia Prandi, Ph.D and Miguel Ribeiro, M.Sc.</p>
+						<div class="tags are-medium">
+							<span class="tag is-rounded">Javascript ES6</span>
+							<span class="tag is-rounded">d3.js</span>
+							<span class="tag is-rounded">jQuery</span>
+							<span class="tag is-rounded">Node.js</span>
+						</div>
+					</div>
 
 				</div>
 			</div>
