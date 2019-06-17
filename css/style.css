@@ -181,6 +181,8 @@ footer a:hover, footer a:active, footer a:visited {
 
 .faq h1 {
 	margin-bottom: 2px !important;
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
 }
 
 .faq p.sub {
@@ -196,4 +198,5 @@ footer a:hover, footer a:active, footer a:visited {
 .contact-form input, .contact-form textarea {
 	box-shadow: none;
 	outline: none;
+	border: 1px solid #dddddd;
 }
