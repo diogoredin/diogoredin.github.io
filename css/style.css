@@ -70,9 +70,6 @@
 	margin-top: 10px;
 }
 
-.slider-signin, .slider-secret, .slider-vitflow {
-}
-
 .about {
 	margin-top: 60px;
 	padding-top: 60px;
@@ -110,4 +107,93 @@ footer a, footer p {
 
 footer a:hover, footer a:active, footer a:visited {
 	color: #ffffff;
+}
+
+.launch {
+	padding-top: 100px;
+	padding-left: 20px;
+}
+
+.launch h1 {
+	font-size: 40px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.launch h2 {
+	font-size: 26px;
+}
+
+.table-container {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.table-container h1 {
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.table-container h2.subtitle {
+	padding-top: 20px;
+}
+
+.how {
+	margin-top: 60px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: whitesmoke;
+}
+
+.how img {
+	border: 5px solid #ffffff;
+	border-radius: 2px;
+}
+
+.how .icon {
+	vertical-align: text-bottom;
+	margin-right: 5px;
+}
+
+.how h1 {
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
+	margin-bottom: 15px;
+}
+
+.how h2 {
+	margin-top: 15px;
+	font-size: 18px;
+}
+
+.contact {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.contact-form h1 {
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.contact-form h1::after {
+	letter-spacing: 10px;
+}
+
+.faq h1 {
+	margin-bottom: 2px !important;
+}
+
+.faq p.sub {
+	padding-top: 22px;
+	margin-bottom: 5px !important;
+	font-weight: bold;
+}
+
+.contact-form {
+	padding-right: 30px;
+}
+
+.contact-form input, .contact-form textarea {
+	box-shadow: none;
+	outline: none;
 }

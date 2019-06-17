@@ -28,13 +28,16 @@ $(document).ready(function() {
     });
 
     $(".header-studio").hide();
-    $(".table").hide();
+    $(".table-container").hide();
     $(".how").hide();
     $(".contact").hide();
 
     $("#studio").on("click", function() {
         $("#personal").removeClass("is-info is-selected");
         $(this).addClass("is-info is-selected");
+
+        /* Change title */
+        document.title = 'Rapid MVP development';
 
         /* Hide */
         $(".header-personal").hide();
@@ -44,7 +47,7 @@ $(document).ready(function() {
 
         /* Show */
         $(".header-studio").show();
-        $(".table").show();
+        $(".table-container").show();
         $(".how").show();
         $(".contact").show();
 
@@ -54,9 +57,12 @@ $(document).ready(function() {
         $("#studio").removeClass("is-info is-selected");
         $(this).addClass("is-info is-selected");
 
+        /* Change title */
+        document.title = 'Front-end developer';
+
         /* Hide */
         $(".header-studio").hide();
-        $(".table").hide();
+        $(".table-container").hide();
         $(".how").hide();
         $(".contact").hide();
 
