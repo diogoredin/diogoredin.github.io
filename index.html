@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Front-end developer</title>
+		<title>Diogo Redin | Front-end developer</title>
 
 		<link rel="stylesheet" href="css/bulma.css">
 		<link rel="stylesheet" href="css/style.css">
@@ -38,8 +38,8 @@
 			<div class="navbar-end">
 				<div class="choicer">
 					<div class="buttons has-addons">
-						<span id="personal" class="button is-info is-selected">Personal</span>
-						<span id="studio" class="button">Studio</span>
+						<!-- <span id="personal" class="button is-info is-selected">Personal</span> -->
+						<!-- <span id="studio" class="button">Studio</span> -->
 					</div>
 				</div>
 			</div>
@@ -54,7 +54,7 @@
 	
 			<div class="columns">
 	
-				<div class="column is-5 profile">
+				<div class="column is-5 profile is-hidden-touch">
 					<img src="img/diogoredin.png" />
 				</div>
 	
@@ -64,13 +64,13 @@
 					<h2 class="subtitle">A Front-end developer passionate about product development.</h2>
 	
 					<p class="buttons">
-						<a class="button is-medium is-info">
+						<a class="button is-medium is-info" href="#about">
 							<span class="icon">
 								<i class="fas fa-ellipsis-h"></i>
 							</span>
 							<span>Know more</span>
 						</a>
-						<a class="button is-medium is-success">
+						<a class="button is-medium is-success" href="/cv.pdf">
 							<span class="icon">
 								<i class="fas fa-download"></i>
 							</span>
@@ -128,7 +128,7 @@
 	
 					<div class="column item-description">
 						<h1 class="title">SecretSanta.run</h1>
-						<p>I have built this Secret Santa Generator because I wanted a better alternative. The alternatives I use always require me to know my friend's email addresses which is something I don't usually know. I built a web application where users can write down their friend's phone numbers and the app will message each person their match. Participants can then message back the app their gift preferences and the person that is responsible for gifting them will receive the message. This process doesn't require any sign up and the organizer of the event can download the matches as backup.</p>
+						<p>I have built this Secret Santa Generator because I wanted a better alternative to the existing ones. The ones I use always require me to know my friend's email addresses which is something I don't usually know. I built a web application where users can write down their friend's phone numbers and the app will message each person their match. Participants can then message back the app their gift preferences and the person that is responsible for gifting them will receive the message. This process doesn't require any sign up and the organizer of the event can download the matches as backup.</p>
 						<div class="tags are-medium">
 							<span class="tag is-rounded">Javascript ES6</span>
 							<span class="tag is-rounded">Node.js</span>
@@ -204,7 +204,7 @@
 		</div>
 	</section>
 	
-	<section class="about">
+	<section class="about" id="about">
 		<div class="container">
 	
 			<div class="columns">
@@ -216,8 +216,8 @@
 				<div class="column">
 					<h1 class="title">Current focus</h1>
 					<ul>
-						<li>Expand my skill set and learn best practices in Front-end development;</li>
-						<li>Develop my new consulting service focused on rapid MVP development.</li>
+						<li>Expand my skill set and learn best practices in Front-end development.</li>
+						<li>Continue developing minimum viable products for the various ideas I have.</li>
 					</ul>
 				</div>
 	
@@ -234,7 +234,7 @@
 		</div>
 	</section>
 	
-	<section class="pictures">
+	<section class="pictures is-hidden-touch">
 		<div class="columns is-gapless">
 			<div class="column">
 				<img src="insta/code.jpg" />
@@ -474,16 +474,15 @@
 
 			<div class="level">
 				<div class="level-left">
-					<p class="level-item"><a><span class="icon"><i class="fab fa-twitter"></i></span><span>Twitter</span></a></p>
-					<p class="level-item"><a><span class="icon"><i class="fab fa-product-hunt"></i></span><span>ProductHunt</span></a></p>
-					<p class="level-item"><a><span class="icon"><i class="fab fa-linkedin"></i></span><span>LinkedIn</span></a></p>
-					<p class="level-item"><a><span class="icon"><i class="fab fa-instagram"></i></span><span>Instagram</span></a></p>
-					<p class="level-item"><a><span class="icon"><i class="fas fa-envelope"></i></span><span>me@diogoredin.com</span></a></p>
+					<p class="level-item"><a href="http://twitter.com/diogoredin"><span class="icon"><i class="fab fa-twitter"></i></span><span>Twitter</span></a></p>
+					<p class="level-item"><a href="http://producthunt.com/@diogoredin/submitted"><span class="icon"><i class="fab fa-product-hunt"></i></span><span>ProductHunt</span></a></p>
+					<p class="level-item"><a href="https://www.linkedin.com/in/diogoredin/"><span class="icon"><i class="fab fa-linkedin"></i></span><span>LinkedIn</span></a></p>
+					<p class="level-item"><a href="mailto:me@diogoredin.com"><span class="icon"><i class="fas fa-envelope"></i></span><span>me@diogoredin.com</span></a></p>
 				</div>
-				<div class="level-right">
+				<!-- <div class="level-right">
 					<p class="level-item"><a>Terms and Conditions</a></p>
 					<p class="level-item"><a>Privacy Policy</a></p>
-				</div>
+				</div> -->
 			</div>
 
 		</div>
