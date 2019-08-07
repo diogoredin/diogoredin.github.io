@@ -3,7 +3,6 @@
 }
 
 .header-level {
-	border-bottom: 1px solid #dddddd;
 	padding: 15px 50px 15px 50px;
 }
 
@@ -16,7 +15,7 @@
 }
 
 .header {
-	padding-top: 100px;
+	padding-top: 50px;
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,dbeef7+100&0+0,1+100 */ /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, rgba(125,185,232,0) 0%,rgba(219,238,247,1) 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom, rgba(125,185,232,0) 0%,rgba(219,238,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
