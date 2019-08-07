@@ -1,0 +1,202 @@
+* {
+	font-family: 'PT Sans', sans-serif;
+}
+
+.header-level {
+	padding: 15px 50px 15px 50px;
+}
+
+.logo {
+	max-width: 150px;
+}
+
+.choicer {
+	margin-top: 15px;
+}
+
+.header {
+	padding-top: 50px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,dbeef7+100&0+0,1+100 */ /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(125,185,232,0) 0%,rgba(219,238,247,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(125,185,232,0) 0%,rgba(219,238,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#dbeef7',GradientType=0 ); /* IE6-9 */
+	border-bottom: 1px solid #dddddd;
+}
+
+.profile img {
+	max-width: 400px;
+}
+
+.profile {
+	padding-bottom: 5px;
+}
+
+.intro {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.intro h1 {
+	font-size: 40px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.intro h2 {
+	font-size: 26px;
+}
+
+.portfolio {
+	margin-top: 60px;
+}
+
+.portfolio-item {
+	margin-top: 50px;
+}
+
+.item-description {
+	padding-top: 20px;
+}
+
+.item-description h1.title {
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.tags {
+	margin-top: 25px;
+}
+
+.item-links {
+	margin-top: 10px;
+}
+
+.about {
+	margin-top: 60px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: whitesmoke;
+}
+
+.about ul {
+	padding-left: 1em;
+	list-style-type: circle;
+}
+
+.about h1.title {
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.pictures {
+	margin-bottom: -10px;
+}
+
+footer {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background: #222222;
+}
+
+footer .icon {
+	vertical-align: middle;
+}
+
+footer a, footer p {
+	color: #999999;
+}
+
+footer a:hover, footer a:active, footer a:visited {
+	color: #ffffff;
+}
+
+.launch {
+	padding-top: 100px;
+	padding-left: 20px;
+}
+
+.launch h1 {
+	font-size: 40px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.launch h2 {
+	font-size: 26px;
+}
+
+.table-container {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.table-container h1 {
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.table-container h2.subtitle {
+	padding-top: 20px;
+}
+
+.how {
+	margin-top: 60px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: whitesmoke;
+}
+
+.how img {
+	border: 5px solid #ffffff;
+	border-radius: 2px;
+}
+
+.how .icon {
+	vertical-align: text-bottom;
+	margin-right: 5px;
+}
+
+.how h1 {
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
+	margin-bottom: 15px;
+}
+
+.how h2 {
+	margin-top: 15px;
+	font-size: 18px;
+}
+
+.contact {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.contact-form h1 {
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.contact-form h1::after {
+	letter-spacing: 10px;
+}
+
+.faq h1 {
+	margin-bottom: 2px !important;
+	font-size: 26px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.faq p.sub {
+	padding-top: 22px;
+	margin-bottom: 5px !important;
+	font-weight: bold;
+}
+
+.contact-form {
+	padding-right: 30px;
+}
+
+.contact-form input, .contact-form textarea {
+	box-shadow: none;
+	outline: none;
+	border: 1px solid #dddddd;
+}

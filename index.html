@@ -1,471 +1,480 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-	
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    
-    <!-- Title -->
-    <title>Diogo Redin Front-end Developer</title>
+<html>
 
-    <!-- Bootstrap -->
-    <link href="css/auxiliary/bootstrap.min.css" rel="stylesheet">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Diogo Redin | Front-end developer</title>
 
-    <!-- Animations -->
-    <link href="css/auxiliary/animate.min.css" rel="stylesheet">
-		
-		<!-- Icons -->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/bulma.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/slider.css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito|PT+Sans&display=swap" rel="stylesheet">
 
-    <!-- Style -->
-    <link href="css/template/style.css" rel="stylesheet">
-    <link href="css/template/responsive.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+		<script src="js/slider.min.js"></script>
+		<script src="js/main.js"></script>
 
-  </head>
-  <body class="home">
+		<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+		<link rel="manifest" href="img/favicons/site.webmanifest">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+	</head>
 
-	<!-- Starts Discover Our App -->
-	<section id="discover_our_app">
+<body>
 
-		<!-- Starts Container -->
+	<div class="header-level navbar">
 		<div class="container">
 
-			<div class="row">
-
-				<!-- Starts Left Side -->
-				<div class="col-md-6">
-
-					<div id="app_content">
-						<h1 class="discover_app">Diogo Redin</h1>
-						<p>Front-end developer, currently studying Computer Engineering at Instituto Superior Técnico.</p>
-						<a href="https://www.linkedin.com/in/diogoredin/" target="_blank">Know more on LinkedIn <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a>
-					</div>
-
+			<div class="navbar-brand">
+				<div class="logo">
+					<img src="img/logo.png" />
 				</div>
-				<!-- Ends Left Side -->
+			</div>
 
-				<!-- Starts Right Side -->
-				<div class="col-md-6">
-
-					<div class="app_image">
-						<img class="img-responsive" src="placeholders/diogoredin.jpg" alt="Diogo Redin" />
+			<div class="navbar-end">
+				<div class="choicer">
+					<div class="buttons has-addons">
+						<!-- <span id="personal" class="button is-info is-selected">Personal</span> -->
+						<!-- <span id="studio" class="button">Studio</span> -->
 					</div>
-
 				</div>
-				<!-- Ends Right Side -->
-
 			</div>
 
 		</div>
-		<!-- Ends Container -->
-
-	</section>
-	<!-- Ends Discover Our App -->
-
-	<!-- Starts Tabs -->
-	<div id="tabs_container">
-
-		<!-- Starts Container -->
-		<div class="container">
-
-			<!-- Starts Tabs -->
-			<div id="tabs">
-
-				<!-- Starts Tabs Bar -->
-				<ul>
-
-					<li><a href="#tab-1">Featured</a></li>
-					<li><a href="#tab-2">2019</a></li>
-					<li><a href="#tab-3">2018</a></li>
-					<li><a href="#tab-4">2017</a></li>
-					<li><a href="#tab-5">2016</a></li>
-					<li><a href="#tab-6">2012</a></li>
-					<li><a href="#tab-7">2011</a></li>
-
-				</ul>
-				<!-- Ends Tabs Bar -->
-
-				<!-- TAB 1 -->
-				<div id="tab-1">
-
-					<div class="row tabs_grid">
-					<div class="col-md-4">
-						<div class="tabs_grid_block">
-
-							<div class="block_image">
-								<img src="portfolio/whatsignin.png" class="img-responsive" alt="WhatSign.in Chrome Extension" />
-							</div>
-
-							<h4 class="block_tile">WhatSign.in Chrome Extension</h4>
-							<p class="block_text">Chrome Extension that remembers which login service you have used in the past so you don't have to.</p>
-
-						</div>
-					</div>
-
-					<div class="col-md-4">
-						<div class="tabs_grid_block">
-
-							<div class="block_image">
-								<img src="portfolio/secretsanta.png" class="img-responsive" alt="SecretSanta" />
-							</div>
-
-							<h4 class="block_tile">SecretSanta.run</h4>
-							<p class="block_text">Draw Names for your Christmas Gift Exchanges and receive the results via SMS.</p>
-
-						</div>
-					</div>
-
-					<div class="col-md-4">
-						<div class="tabs_grid_block">
-
-							<div class="block_image">
-								<img src="portfolio/vitflow.png" class="img-responsive" alt="Vitflow" />
-							</div>
-
-							<h4 class="block_tile">ViTFlow.m-iti.org</h4>
-							<p class="block_text">Project developed in m-iti that explores new ways to visualise data regarding populations and their activity.</p>
-
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-			<!-- /TAB1 -->
-
-			<!-- TAB 2 -->
-			<div id="tab-2">
-
-				<div class="row tabs_grid">
-
-					<div class="col-md-4">
-							<div class="tabs_grid_block">
-	
-								<div class="block_image">
-									<img src="portfolio/whatsignin.png" class="img-responsive" alt="WhatSign.in Chrome Extension" />
-								</div>
-	
-								<h4 class="block_tile">WhatSign.in Chrome Extension</h4>
-								<p class="block_text">Chrome Extension that remembers which login service you have used in the past so you don't have to.</p>
-	
-							</div>
-						</div>
-
-				</div>
-
-				</div>
-				<!-- /TAB2 -->
-
-				<!-- TAB 3 -->
-				<div id="tab-3">
-
-					<div class="row tabs_grid">
-
-						<div class="col-md-4">
-								<div class="tabs_grid_block">
-		
-									<div class="block_image">
-										<img src="portfolio/secretsanta.png" class="img-responsive" alt="SecretSanta" />
-									</div>
-		
-									<h4 class="block_tile">SecretSanta.run</h4>
-									<p class="block_text">Draw Names for your Christmas Gift Exchanges and receive the results via SMS.</p>
-		
-								</div>
-							</div>
-
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-	
-								<div class="block_image">
-									<img src="portfolio/vitflow.png" class="img-responsive" alt="Vitflow" />
-								</div>
-	
-								<h4 class="block_tile">ViTFlow.m-iti.org</h4>
-								<p class="block_text">Project developed in m-iti that explores new ways to visualise data regarding populations and their activity.</p>
-	
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-				<!-- /TAB3 -->
-
-				<!-- TAB 4 -->
-				<div id="tab-4">
-
-					<div class="row tabs_grid">
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/daisuki.png" class="img-responsive" alt="Daisuki Interactive Table" />
-								</div>
-
-								<h4 class="block_tile">Daisuki Interactive Table</h4>
-								<p class="block_text">Prototype developed in Web Technologies for an interactive table in Sushi Restaurants.</p>
-
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/lipp.png" class="img-responsive" alt="Lipp BuddyPress Theme" />
-								</div>
-
-								<h4 class="block_tile">Lipp BuddyPress Theme</h4>
-								<p class="block_text">WordPress BuddyPress theme being developed for ThemeForest.</p>
-
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-				<!-- /TAB 4 -->
-
-				<!-- TAB 5 -->
-				<div id="tab-5">
-
-					<div class="row tabs_grid">
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/moon.png" class="img-responsive" alt="Moon Landing Page" />
-								</div>
-
-								<h4 class="block_tile">Moon Landing Page</h4>
-								<p class="block_text">Moon is a one page solution for a growing startup or freelancer looking to generate more leads.</p>
-
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/alfacinha.png" class="img-responsive" alt="AlfacinhaLX Website Proposal" />
-								</div>
-
-								<h4 class="block_tile">AlfacinhaLX Website Proposal</h4>
-								<p class="block_text">Proposal of a website redesign for AlfacinhaLX, a tours company based in Lisbon.</p>
-
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-				<!-- /TAB 5 -->
-
-				<!-- TAB 6 -->
-				<div id="tab-6">
-
-					<div class="row tabs_grid">
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/simple.png" class="img-responsive" alt="Simple Shopify Theme" />
-								</div>
-
-								<h4 class="block_tile">Simple Shopify Theme</h4>
-								<p class="block_text">Simple is a powerful Shopify theme aimed at all kind of stores.</p>
-
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/colours.png" class="img-responsive" alt="nColours Template" />
-								</div>
-
-								<h4 class="block_tile">nColours Template</h4>
-								<p class="block_text">nColours. is a powerful HTML template aimed at all kind of stores.</p>
-								</p>
-
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/maria.png" class="img-responsive" alt="Maria Monteiro Photography" />
-								</div>
-
-								<h4 class="block_tile">Maria Monteiro Photography</h4>
-								<p class="block_text">Photography portfolio developed using the newest Koken CMS. Built using Bootstrap and the lens language.</p>
-
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/times.png" class="img-responsive" alt="Times Landing Page" />
-								</div>
-
-								<h4 class="block_tile">Times Landing Page</h4>
-								<p class="block_text">Times Landing Page is the ultimate solution to present your company services in an effective and elegant way.</p>
-
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/sevilla.png" class="img-responsive" alt="Sevilla Landing Page" />
-								</div>
-
-								<h4 class="block_tile">Sevilla Landing Page</h4>
-								<p class="block_text">By including bold headlines, and eye catching elements the Sevilla landing page easily converts visitors into customers.</p>
-
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-				<!-- /TAB 6 -->
-
-				<!-- TAB 7 -->
-				<div id="tab-7">
-
-					<div class="row tabs_grid">
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/avira.png" class="img-responsive" alt="Avira SocialShield Blog" />
-								</div>
-
-								<h4 class="block_tile">Avira SocialShield Blog</h4>
-								<p class="block_text">My job consisted in the conversion of the SocialShield blog into WordPress.</p>
-
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/landpost.png" class="img-responsive" alt="LandPost WordPress Theme" />
-								</div>
-
-								<h4 class="block_tile">LandPost WordPress Theme</h4>
-								<p class="block_text">Designed by Eduardo Santos, Landpost was created for our ThemesFever project. Over 150 copies were sold.</p>
-
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="tabs_grid_block">
-
-								<div class="block_image">
-									<img src="portfolio/lightcircle.png" class="img-responsive" alt="LightCircle WordPress Theme" />
-								</div>
-
-								<h4 class="block_tile">LightCircle WordPress Theme</h4>
-								<p class="block_text">Result of a partnership I did with Eduardo Santos, LightCircle was my first theme available for sale. Over 70 copies
-									were sold.
-								</p>
-
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-				<!-- /TAB 7 -->
-
-			</div>
-			<!-- Ends Content -->
-
-		</div>
-		<!-- Ends Container -->
-
 	</div>
-	<!-- Ends Tabs -->
-	
-	<!-- Starts Contact -->
-	<section id="contact">
 
-		<!-- Starts Container -->
+	<!-- STARTS PERSONAL -->
+
+	<section class="header header-personal">
 		<div class="container">
-
-			<p id="returnmessage"></p>
-
-			<form id="contact_form">
-				<input id="name" type="text" class="form-control" placeholder="Your name">
-				<input id="email" type="text" class="form-control" placeholder="E-mail">
-				<textarea id="message" class="form-control" placeholder="Message"></textarea>
-				<input type="submit" id="submit" value="Get in touch" class="btn btn-default">
-			</form>
-
-			<div class="contact_details">
-				<p class="or_just">Or email me on</p>
-				<p class="or_email">me@diogoredin.com</p>
+	
+			<div class="columns">
+	
+				<div class="column is-5 profile is-hidden-touch">
+					<img src="img/diogoredin.png" />
+				</div>
+	
+				<div class="column intro is-5">
+	
+					<h1 class="title">Hello, I'm Diogo Redin</h1>
+					<h2 class="subtitle">A Front-end developer passionate about product development.</h2>
+	
+					<p class="buttons">
+						<a class="button is-medium is-info" href="#about">
+							<span class="icon">
+								<i class="fas fa-ellipsis-h"></i>
+							</span>
+							<span>Know more</span>
+						</a>
+						<a class="button is-medium is-success" href="/cv.pdf">
+							<span class="icon">
+								<i class="fas fa-download"></i>
+							</span>
+							<span>Download CV</span>
+						</a>
+					</p>
+	
+				</div>
 			</div>
-
+	
 		</div>
-		<!-- Ends Container -->
-
 	</section>
-	<!-- Ends Contact -->
-    
-    <!-- Starts Footer -->
-    <footer>
-
-		<!-- Starts Bottom Footer -->
-		<div class="footer_bottom">
-
-			<!-- Starts Container -->
-    		<div class="container">
-
-				<div class="row">
-					<ul class="footer_social">
-						<li class="focus"><a href="https://www.github.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
-						<li class="focus"><a href="https://www.linkedin.com/in/diogoredin/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-						<li class="focus"><a href="https://github.com/diogoredin" target="_blank"><i class="fab fa-github"></i></a></li>
-						<li class="focus"><a href="https://www.producthunt.com/@diogoredin/submitted" target="_blank"><i class="fab fa-product-hunt"></i></a></li>
+	
+	<section class="portfolio">
+		<div class="container">
+	
+			<div class="portfolio-item">
+				<div class="columns">
+	
+					<div class="column is-5 item-details">
+						<div class="slider-signin">
+							<img src="portfolio/whatsignin_promo.png" />
+							<img src="portfolio/whatsignin_shot.png" />
+						</div>
+						<div class="item-links">
+							<a href="https://whatsign.in/" class="button is-info">
+								<span class="icon is-small">
+									<i class="fas fa-external-link-alt"></i>
+								</span>
+								<span>Website</span>
+							</a>
+						</div>
+					</div>
+	
+					<div class="column item-description">
+						<h1 class="title">WhatSign.in</h1>
+						<p>I developed this extension after struggling with having to remember which social network I used to login into websites. The first time you visit a website and login using a social authenticator (Facebook, Twitter, Google etc.) it registers the one you choose. When you visit the website again later on you can open the extension and it will tell you the social authenticator you have used before. If you click on 'Forget' it will forget your chosen social authenticator and you can now choose a different one, which the extension will register.</p>
+						<div class="tags are-medium">
+							<span class="tag is-rounded">Javascript ES6</span>
+							<span class="tag is-rounded">Chromium API</span>
+						</div>
+					</div>
+	
+				</div>
+			</div>
+	
+			<div class="portfolio-item">
+				<div class="columns">
+	
+					<div class="column item-description">
+						<h1 class="title">SecretSanta.run</h1>
+						<p>I have built this Secret Santa Generator because I wanted a better alternative to the existing ones. The ones I used always require me to know my friend's email addresses which is something I don't usually know. I built a web application where users can write down their friend's phone numbers and the app will message each person their match. Participants can then message back the app their gift preferences and the person that is responsible for gifting them will receive the message. This process doesn't require any sign up and the organizer of the event can download the matches as backup.</p>
+						<div class="tags are-medium">
+							<span class="tag is-rounded">Javascript ES6</span>
+							<span class="tag is-rounded">Node.js</span>
+							<span class="tag is-rounded">React</span>
+							<span class="tag is-rounded">Twilio</span>
+						</div>
+					</div>
+	
+					<div class="column is-5 item-details">
+						<div class="slider-secret">
+							<img src="portfolio/secretsanta_features.png" />
+							<img src="portfolio/secretsanta_options.png" />
+							<img src="portfolio/secretsanta_sms.png" />
+						</div>
+						<div class="item-links">
+							<a href="https://github.com/diogoredin/secretsanta.run" class="button is-info">
+								<span class="icon is-small">
+									<i class="fas fa-code"></i>
+								</span>
+								<span>Source Code</span>
+							</a>
+						</div>
+					</div>
+	
+				</div>
+			</div>
+	
+			<div class="portfolio-item">
+				<div class="columns">
+	
+					<div class="column is-5 item-details">
+						<div class="slider-vitflow">
+							<img src="portfolio/vitflow_2.png" />
+							<img src="portfolio/vitflow_3.png" />
+							<img src="portfolio/vitflow_1.png" />
+						</div>
+						<div class="item-links">
+							<a href="http://vitflow.m-iti.org/" class="button is-info">
+								<span class="icon is-small">
+									<i class="fas fa-external-link-alt"></i>
+								</span>
+								<span>Website</span>
+							</a>
+							<a href="http://dl.ifip.org/db/conf/ifip6-3/sustainit2017/24_D01_S38_SustainIT2017.pdf" class="button is-info">
+								<span class="icon is-small">
+									<i class="fas fa-download"></i>
+								</span>
+								<span>Published Paper</span>
+							</a>
+						</div>
+					</div>
+	
+					<div class="column item-description">
+						<h1 class="title">ViTFlow</h1>
+						<p>ViTFlow is a project that explores new ways to visualise data regarding populations and their activity. The visualizations available allow users to select a time range and see data referent to that period. These visualizations can also be overlapped to find correlations between events. Project developed by Diogo Redin and Diogo Vilela during a 2017 Summer Internship in M-ITI under the supervision of Nuno Jardim Nunes, Ph.D, Catia Prandi, Ph.D and Miguel Ribeiro, M.Sc.</p>
+						<div class="tags are-medium">
+							<span class="tag is-rounded">Javascript ES6</span>
+							<span class="tag is-rounded">d3.js</span>
+							<span class="tag is-rounded">jQuery</span>
+							<span class="tag is-rounded">Node.js</span>
+						</div>
+					</div>
+	
+				</div>
+			</div>
+	
+		</div>
+	</section>
+	
+	<section class="about" id="about">
+		<div class="container">
+	
+			<div class="columns">
+				<div class="column is-5">
+					<h1 class="title">Background</h1>
+					<p>I started programming 8+ years ago, doing WordPress theme development. I got a Bachelor's in Computer Engineering from <a href="https://tecnico.ulisboa.pt/en/">IST</a> in 2019 (11st place in the <a href="https://www.usnews.com/education/best-global-universities/engineering?int=994b08">US News EU Engineering universities ranking</a>).</p>
+				</div>
+	
+				<div class="column">
+					<h1 class="title">Current focus</h1>
+					<ul>
+						<li>Expand my skill set and learn best practices in Front-end development.</li>
+						<li>Continue developing minimum viable products for the various ideas I have.</li>
 					</ul>
 				</div>
+	
+				<div class="column">
+					<h1 class="title">Long-term career goals</h1>
+					<ul>
+						<li>Work with people that have expertise in venture building and scaling digital businesses;</li>
+						<li>Work in a tech accelerator or research team inside an established company.</li>
+					</ul>
+				</div>
+	
+			</div>
+	
+		</div>
+	</section>
+	
+	<section class="pictures is-hidden-touch">
+		<div class="columns is-gapless">
+			<div class="column">
+				<img src="insta/code.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/ibm.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/caleidoscopio.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/websummit.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/understand.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/vitflow.jpg" />
+			</div>
+			<div class="column">
+				<img src="insta/study.jpg" />
+			</div>
+		</div>
+	</section>
+
+	<!-- STARTS STUDIO -->
+
+	<section class="header header-studio">
+		<div class="container">
+	
+			<div class="columns is-8">
+	
+				<div class="column is-4 profile">
+					<img src="img/explain.png" />
+				</div>
+	
+				<div class="column launch is-7">
+	
+					<h1 class="title">Launch your idea to market in 30 days</h1>
+					<h2 class="subtitle">We build minimum viable products for your ideas so you can test product market fit as soon as possible.</h2>
+					
+				</div>
 
 			</div>
-    		<!-- Ends Container -->
-   			
-   		</div>
-		<!-- Ends Bottom Footer -->
-    	
-    </footer>
-    <!-- Ends Footer -->
+	
+		</div>
+	</section>
 
-    <!-- Helper Scripts -->
-    <script src="js/auxiliary/jquery.min.js"></script>
-    <script src="js/auxiliary/jquery-ui.min.js"></script>
-    <script src="js/auxiliary/bootstrap.min.js"></script>
-    <script src="js/auxiliary/smooth-scroll.min.js"></script>
-    <script src="js/auxiliary/jquery.waypoints.min.js"></script>
+	<section class="table-container">
+		<div class="container">
+	
+			<div class="columns">
+	
+				<div class="column">
+					<h1 class="title">The usual way of launching</h1>
+					<h2 class="subtitle">How long do you need to turn an idea into a functional product to test with customers? Well, we believe you can avoid the usual costs:</h2>
+					<table class="table is-striped">
+						<tbody>
+							<tr>
+								<td><strong>Money cost</strong></td>
+								<td>Hire a team to build the product without validating the idea first</td>
+							</tr>
+							<tr>
+								<td><strong>Time cost</strong></td>
+								<td>Spend 6 months developing the product but never be able to launch it earlier</td>
+							</tr>
+							<tr>
+								<td><strong>Fundraising</strong></td>
+								<td>Try to raise investor funding without having any early traction</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 
-    <!-- Template Scripts -->
-	<script src="js/template/script.js"></script>
-	<script src="js/template/contact_form.js"></script>
+				<div class="column">
+					<h1 class="title">Our proposal</h1>
+					<h2 class="subtitle">Dropbox, Facebook & Airbnb did not start out as full-feature platforms. They built minimum viable products (MVPs) to test their ideas to see whether they would succeed. A MVP is an initial version of your app or platform that:</h2>
+					<table class="table is-striped">
+						<tbody>
+							<tr>
+								<td><strong>Basic</strong></td>
+								<td>Has just enough features to demonstrate how your idea works</td>
+							</tr>
+							<tr>
+								<td><strong>Traction</strong></td>
+								<td>Allows users to sign up, download, use, interact or pay</td>
+							</tr>
+							<tr>
+								<td><strong>Testing</strong></td>
+								<td>You are able to test the market demand without building extensive product features and without the need for capital funding</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+	
+			</div>
+	
+		</div>
+	</section>
 
-  </body>
+	<section class="how">
+		<div class="container">
+			<h1 class="title">The process</h1>
+
+			<div class="columns">
+
+				<div class="column">
+					<img src="img/requirements.png" />
+					<h2 class="title"><span class="icon"><i class="fas fa-dice-one fa-lg"></i></span><span>Requirements analysis</span></h2>
+					<p>Once you contact us, we will schedule a call with you where you will explain your idea and we will define the most important features that should be included in the MVP.</p>
+				</div>
+
+				<div class="column">
+					<img src="img/sketch.png" />
+					<h2 class="title"><span class="icon"><i class="fas fa-dice-two fa-lg"></i></span><span>Prototype sketch</span></h2>
+					<p>We will produce a first sketch, not a real design, where you can see how the final interface will behave. On this phase the goal is to make sure the requirements were well understood.</p>
+				</div>
+
+				<div class="column">
+					<img src="img/first.png" />
+					<h2 class="title"><span class="icon"><i class="fas fa-dice-three fa-lg"></i></span><span>First prototype</span></h2>
+					<p>To fasten the process, and since this is an MVP, we do design in the browser. This means that the first time you see the functional prototype is also the first time you see the design.</p>
+				</div>
+
+				<div class="column">
+					<img src="img/final.png" />
+					<h2 class="title"><span class="icon"><i class="fas fa-dice-four fa-lg"></i></span><span>Final prototype</span></h2>
+					<p>On this phase you can ask for 10 changes to be made to the MVP. The changes must be concise and not new features that weren't defined in the requirements analysis.</p>
+				</div>
+
+				<div class="column">
+					<img src="img/follow-up.png" />
+					<h2 class="title"><span class="icon"><i class="fas fa-dice-five fa-lg"></i></span><span>Follow-up</span></h2>
+					<p>After the MVP is finished we can also put it in production. Support for the prototype will be provided for 3 years. This support includes the guarantee that the MVP is scalable.</p>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+	<section class="contact">
+		<div class="container">
+
+			<div class="columns">
+				<div class="column contact-form">
+					<h1 class="title">Got an idea in mind?</h1>
+					
+					<form action="https://formspree.io/me@diogoredin.com" method="POST" />
+
+					<div class="field">
+						<label class="label">Product idea</label>
+						<div class="control">
+							<textarea name="name-idea" class="textarea" placeholder="A brief description of the product idea."></textarea>
+						</div>
+					</div>
+
+					<div class="columns">
+						<div class="column">
+							<div class="field">
+								<label class="label">Name</label>
+								<div class="control has-icons-left has-icons-right">
+									<input name="name-name" class="input" type="text" placeholder="Name">
+									<span class="icon is-small is-left">
+										<i class="fas fa-user"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="column">
+							<div class="field">
+								<label class="label">Email</label>
+								<div class="control has-icons-left has-icons-right">
+									<input name="name-email" class="input" type="email" placeholder="name@email.com">
+									<span class="icon is-small is-left">
+										<i class="fas fa-envelope"></i>
+									</span>
+								</div>
+								<!-- <p class="help is-danger">This email is invalid</p> -->
+							</div>
+						</div>
+
+						<div class="column">
+							<div class="field">
+								<label class="label">Budget</label>
+								<div class="control">
+									<div class="select">
+										<select name="name-budget">
+											<option>Select one ...</option>
+											<option>Less than $5,000</option>
+											<option>$5,000 - $15,000</option>
+											<option>$15,000 - $30,000</option>
+											<option>$30,000 - $50,000</option>
+											<option>$50,000+</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+							
+					<div class="field is-grouped">
+						<div class="control">
+							<button class="button is-info" type="submit">
+								<span class="icon is-small">
+									<i class="fas fa-paper-plane"></i>
+								</span>
+								<span>Send</span>
+							</button>
+						</div>
+					</div>
+
+					</form>
+				
+				</div>
+
+				<div class="column faq">
+					<h1 class="title">
+						Frequently asked questions
+					</h1>
+					<p class="sub">What kind of projects can you develop?</p>
+					<p>We do mostly web-based apps. If you are unsure if we can complete a MVP for your idea don't hesitate to contact us.</p>
+					<p class="sub">What is covered by the budget?</p>
+					<p>Besides the MVP, which includes the design, code and testing of the prototype, we can also provide you with a logotype and landing page for your product.</p>
+					<p class="sub">How is my ownership protected?</p>
+					<p>You retain full ownership of the MVP and other materials developed by us. We will sign a NDA and contract to protect your rights.</p>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+
+			<div class="level">
+				<div class="level-left">
+					<p class="level-item"><a href="http://twitter.com/diogoredin"><span class="icon"><i class="fab fa-twitter"></i></span><span>Twitter</span></a></p>
+					<p class="level-item"><a href="http://producthunt.com/@diogoredin/submitted"><span class="icon"><i class="fab fa-product-hunt"></i></span><span>ProductHunt</span></a></p>
+					<p class="level-item"><a href="http://inkedin.com/in/diogoredin"><span class="icon"><i class="fab fa-linkedin"></i></span><span>LinkedIn</span></a></p>
+					<p class="level-item"><a href="mailto:me@diogoredin.com"><span class="icon"><i class="fas fa-envelope"></i></span><span>me@diogoredin.com</span></a></p>
+				</div>
+				<!-- <div class="level-right">
+					<p class="level-item"><a>Terms and Conditions</a></p>
+					<p class="level-item"><a>Privacy Policy</a></p>
+				</div> -->
+			</div>
+
+		</div>
+	</footer>
+
+</body>
 </html>
