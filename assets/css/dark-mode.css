@@ -1,0 +1,266 @@
+body {
+	background-color: #2A3043;
+	color: #DDDDDD;
+}
+
+img {
+	filter: brightness(.95);
+}
+
+a, a:hover {
+	color: #3AAFE0;
+}
+
+.button.is-link.is-light {
+	background-color: #3AAFE0;
+	color: #FFFFFF;
+}
+
+.button.is-link.is-light:hover {
+	background-color: #2985AB;
+	color: #CCCCCC;
+}
+
+.input {
+	background-color: #1B202F;
+	border: none;
+	color: #DDDDDD;
+}
+
+.input::placeholder,
+.control.has-icons-left .icon {
+	color: #999999 !important;
+}
+
+.members-form .control input {
+	background: #1B202F;
+	color: #DDDDDD;
+	border: none;
+}
+
+.members-form .control input:hover {
+	z-index: 1;
+}
+
+.members-form .control .is-link.is-light,
+.members-form .control .is-link.is-light:hover,
+.members-form .control .is-link.is-light:focus {
+	border: none;
+}
+
+.members-form .control .button {
+	padding: 25.5px;
+}
+
+.navigation li a:hover,
+.navigation li.is-active a {
+	color: #3AAFE0;
+}
+
+.navigation li > a:after {
+	background-color: #3AAFE0;
+}
+
+.user-toggle:hover,
+.search-toggle:hover,
+.menu-mobile-toggle:hover {
+	color: #3AAFE0;
+}
+
+.user-toggle.is-active {
+	color: #3AAFE0;
+}
+
+.zoom-overlay,
+.menu-overlay,
+.search-overlay {
+	background-color: #2A3043;
+}
+
+button#close-menu:hover,
+button#close-search:hover {
+	background: #3AAFE0;
+}
+
+.logo a, .logo a:visited {
+	color: #DDDDDD;
+}
+
+.logo a:hover {
+	color: #FFFFFF;
+}
+
+.navigation li a {
+	color: #DDDDDD;
+}
+
+.box {
+	background-color: #262B3C;
+	color: #DDDDDD;
+	border: none;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+	color: #DDDDDD;
+}
+
+strong {
+	color: #FFFFFF;
+}
+
+span.featured-post {
+	background-color: #2A3043;
+	color: #DDDDDD;
+}
+
+.post-meta p {
+	color: #DDDDDD;
+}
+
+.post-meta a {
+	color: #DDDDDD;
+}
+
+.post-meta a:hover {
+	color: #3AAFE0;
+}
+
+.dropdown-content {
+	background-color: #262B3C;
+}
+
+.post-subscribe {
+	border: none;
+	background: #262B3C;
+}
+
+.kg-bookmark-container {
+	background-color: #262B3C;
+	box-shadow: #262B3C 0px 2px 8px 0px;
+}
+
+.content blockquote::before {
+	color: #3AAFE0;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #262B3C;
+}
+
+.kg-code-card figcaption {
+	background: #222736;
+}
+
+pre.language-terminal:before {
+	background: #222736;
+	color: #51586C;
+}
+
+pre.language-terminal {
+	border: none;
+}
+
+code.language-terminal, pre.language-terminal {
+	color: #DDDDDD;
+}
+
+code {
+	background: #222736;
+}
+
+.progress-wrap::after {
+	color: #3AAFE0;
+}
+
+.progress-wrap svg.progress-circle path {
+	stroke: #3AAFE0;
+}
+
+ul.authors li.author {
+	background: #262B3C;
+	border: none;
+}
+
+h1.profile-title a {
+	color: #DDDDDD;
+}
+
+h1.profile-title a:hover {
+	color: #3AAFE0;
+}
+
+.table {
+	background-color: #262B3C;
+	color: #DDDDDD;
+}
+
+.table.is-striped tbody tr:not(.is-selected):nth-child(even) {
+	background-color: #222736;
+	border: none;
+}
+
+.table td, .table th {
+	border: none !important;
+}
+
+.table thead th {
+	color: #FFFFFF !important;
+	background-color: #222736;
+}
+
+.content table th {
+	color: #FFFFFF;
+}
+
+.pricing-table.is-comparative .pricing-plan.is-active {
+	border: 0.1rem solid #222736;
+}
+
+.pricing-table .pricing-plan {
+  background-color: #262B3C;
+	border: 0.1rem solid #222736;
+}
+
+.pricing-table .pricing-plan .plan-header {
+  background-color: #262B3C;
+	color: #DDDDDD;
+}
+
+.pricing-table .pricing-plan .plan-item {
+  background: #2A3043;
+	border-top: 0.1rem solid #222736;
+}
+
+.pricing-table .pricing-plan .plan-items {
+  border-bottom: 0.1rem solid #2A3043;
+}
+
+.pricing-table .pricing-plan .plan-price {
+  background-color: #262B3C;
+	color: #DDDDDD;
+}
+
+.pricing-table .pricing-plan .plan-price .plan-price-amount .plan-price-currency {
+	color: #DDDDDD;
+}
+
+.pricing-table .pricing-plan.is-active {
+	box-shadow: none !important;
+}
+
+@media screen and (min-width: 769px), print {
+	.pricing-table.is-horizontal .pricing-plan .plan-items {
+		background-color: #262B3C;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.pricing-table.is-comparative .pricing-plan .plan-item::before {
+		color: #DDDDDD;
+	}
+}
+
+.footer {
+	background-color: #262B3C;
+}

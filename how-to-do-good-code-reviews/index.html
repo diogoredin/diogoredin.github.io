@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+			<title>How to do good code reviews</title>
+
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/bulma.min.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/fontawesome.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/zoom.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/katex.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/prism.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/social-widget.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/prism-theme.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/pricing-table.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/dark-mode.css?v=587dc81ba9" id="dark-theme" disabled="disabled" />
+
+		<script>
+			if (localStorage.getItem('mode') === 'dark') {
+				document.getElementById('dark-theme').disabled=false;
+			}
+		</script>
+
+		<meta name="description" content="Code reviews can be daunting to make, especially if you are new to the technology or the team you are in. However, code reviews are one of the best opportunities you have to grow as an engineer and help your team move forward." />
+    <link rel="icon" href="https://diogoredin.github.io/content/images/size/w256h256/2023/01/favicon-1.png" type="image/png" />
+    <link rel="canonical" href="https://diogoredin.github.io/how-to-do-good-code-reviews/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="https://diogoredin.github.io/how-to-do-good-code-reviews/amp/" />
+    
+    <meta property="og:site_name" content="Diogo Redin" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to do good code reviews" />
+    <meta property="og:description" content="Code reviews can be daunting to make, especially if you are new to the technology or the team you are in. However, code reviews are one of the best opportunities you have to grow as an engineer and help your team move forward." />
+    <meta property="og:url" content="https://diogoredin.github.io/how-to-do-good-code-reviews/" />
+    <meta property="og:image" content="https://diogoredin.github.io/content/images/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg" />
+    <meta property="article:published_time" content="2021-05-24T00:33:07.000Z" />
+    <meta property="article:modified_time" content="2023-01-13T16:40:40.000Z" />
+    <meta property="article:tag" content="Development" />
+    <meta property="article:tag" content="Software Engineering" />
+    <meta property="article:tag" content="Testing" />
+    <meta property="article:tag" content="Accessibility" />
+    <meta property="article:tag" content="Getting Started" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to do good code reviews" />
+    <meta name="twitter:description" content="Code reviews can be daunting to make, especially if you are new to the technology or the team you are in. However, code reviews are one of the best opportunities you have to grow as an engineer and help your team move forward." />
+    <meta name="twitter:url" content="https://diogoredin.github.io/how-to-do-good-code-reviews/" />
+    <meta name="twitter:image" content="https://diogoredin.github.io/content/images/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Diogo Redin" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Development, Software Engineering, Testing, Accessibility, Getting Started" />
+    <meta name="twitter:site" content="@ghost" />
+    <meta property="og:image:width" content="1000" />
+    <meta property="og:image:height" content="667" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Diogo Redin",
+        "url": "https://diogoredin.github.io/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://diogoredin.github.io/content/images/2023/01/logo-1.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Diogo Redin",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/1f476e38af3a41bdd2a7cd6489d34be0?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://diogoredin.github.io/author/diogo/",
+        "sameAs": []
+    },
+    "headline": "How to do good code reviews",
+    "url": "https://diogoredin.github.io/how-to-do-good-code-reviews/",
+    "datePublished": "2021-05-24T00:33:07.000Z",
+    "dateModified": "2023-01-13T16:40:40.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://diogoredin.github.io/content/images/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg",
+        "width": 1000,
+        "height": 667
+    },
+    "keywords": "Development, Software Engineering, Testing, Accessibility, Getting Started",
+    "description": "Code reviews can be daunting to make, especially if you are new to the technology or the team you are in. However, code reviews are one of the best opportunities you have to grow as an engineer and help your team move forward.\n",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://diogoredin.github.io/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.26" />
+    <link rel="alternate" type="application/rss+xml" title="Diogo Redin" href="https://diogoredin.github.io/rss/" />
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.22/umd/portal.min.js" data-ghost="https://diogoredin.github.io/" data-key="a0a27cebce30090866293fcff7" data-api="https://diogoredin.github.io/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="a0a27cebce30090866293fcff7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://diogoredin.github.io/" crossorigin="anonymous"></script>
+    <script defer src="/public/cards.min.js?v=587dc81ba9"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=587dc81ba9">
+    <script defer src="/public/member-attribution.min.js?v=587dc81ba9"></script>
+    <style>
+    #user-dropdown { display: none !important; }
+    .posts-related { display: none !important; }
+    .logo img { width: 55px !important; }
+    .kg-bookmark-thumbnail img { max-height: 160px; }
+</style>
+
+<script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(101312754);</script>
+<script async src="//static.getclicky.com/js"></script>
+<style>:root {--ghost-accent-color: #15171A;}</style>
+	</head>
+	<body class="post-template tag-development tag-software-engineering tag-testing tag-accessibility tag-getting-started tag-hash-import-2023-01-04-21-40">
+
+			<div id="action-signin-success-false" class="signed-notification notification is-danger is-light">
+				Oops! There was an <strong>issue with the sign in</strong>. Please <a href='https://diogoredin.github.io/signin'>try again</a>.
+				<button class="close-notification delete"></button>
+			</div>
+
+			<div id="action-signup-success-true" class="signed-notification notification is-success is-light">
+				You have <strong>successfully signed up</strong>. You can <a href='https://diogoredin.github.io/signin'>sign in</a> now.
+				<button class="close-notification delete"></button>
+			</div>
+
+			<div id="action-signup-success-false" class="signed-notification notification is-danger is-light">
+				Oops! There was an <strong>issue with the sign up</strong>. Please <a href='https://diogoredin.github.io/signup'>try again</a>.
+				<button class="close-notification delete"></button>
+			</div>
+
+			<div id="action-subscribe-success-true" class="signed-notification notification is-success is-light">
+				You have <strong>successfully subscribed</strong>. Please check your email to confirm.
+				<button class="close-notification delete"></button>
+			</div>
+
+			<div id="action-subscribe-success-false" class="signed-notification notification is-danger is-light">
+				Oops! There was an <strong>issue subscribing</strong>. Please try again.
+				<button class="close-notification delete"></button>
+			</div>
+
+			<div id="stripe-success" class="signed-notification notification is-success is-light">
+				You have <strong>successfully signed up</strong>. You can <a href='https://diogoredin.github.io/signin'>sign in</a> now.
+				<button class="close-notification delete"></button>
+			</div>
+
+		<section class="search-overlay">
+			<div class="container">
+	<div class="close-search-wrapper">
+		<button id="close-search" class="delete is-large"></button>
+	</div>
+
+	<div class="columns is-centered is-mobile">
+		<div class="column is-three-quarters">
+			<form class="search" role="search">
+				<div class="field">
+					<p class="control search-control has-icons-left">
+						<input id="search-field" class="input is-large" type="search" placeholder="Type to Search">
+						<span class="icon is-medium is-left">
+							<i class="fas fa-search"></i>
+						</span>
+					</p>
+				</div>
+			</form>
+
+			<section id="search-results"></section>
+		</div>
+	</div>
+</div>
+		</section>
+
+		<section class="menu-overlay">
+			<div class="container">
+	<div class="close-menu-wrapper">
+		<button id="close-menu" class="delete is-large"></button>
+	</div>
+
+	<div class="columns is-centered">
+		<div class="column is-three-quarters mobile">
+				<ul class="navigation" role="navigation">
+			<li class="">
+				<a href="https://diogoredin.github.io/">
+					Home
+				</a>
+			</li>
+			<li class="">
+				<a href="https://diogoredin.github.io/about/">
+					About
+				</a>
+			</li>
+			<li class="">
+				<a href="https://diogoredin.github.io/projects/">
+					Projects
+				</a>
+			</li>
+			<li class="">
+				<a href="https://drive.google.com/file/d/1MP0Ix8FTi6W8YKL44jpoWYhotm1l6Aq7/view">
+					Resume
+				</a>
+			</li>
+	</ul>
+
+		</div>
+	</div>
+</div>
+		</section>
+
+		<section class="wrapper">
+			<div class="container">
+				<nav class="level is-mobile" role="navigation" aria-label="main navigation">
+  <div class="level-left">
+    <div class="level-item logo" role="logo">
+        <a href="https://diogoredin.github.io"><img src="https://diogoredin.github.io/content/images/2023/01/logo-1.png" /></a>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="level-item is-hidden-touch">
+      	<ul class="navigation" role="navigation">
+			<li class="">
+				<a href="https://diogoredin.github.io/">
+					Home
+				</a>
+			</li>
+			<li class="">
+				<a href="https://diogoredin.github.io/about/">
+					About
+				</a>
+			</li>
+			<li class="">
+				<a href="https://diogoredin.github.io/projects/">
+					Projects
+				</a>
+			</li>
+			<li class="">
+				<a href="https://drive.google.com/file/d/1MP0Ix8FTi6W8YKL44jpoWYhotm1l6Aq7/view">
+					Resume
+				</a>
+			</li>
+	</ul>
+
+    </div>
+
+      <div
+        id="user-dropdown"
+        class="dropdown user-toggle level-item"
+        tabindex="0"
+      >
+        <div id="user-actions" class="dropdown-trigger">
+          <span
+            class="icon is-medium"
+            aria-haspopup="true"
+            aria-controls="dropdown-menu"
+          >
+            <i class="fas fa-user fa-lg"></i>
+          </span>
+        </div>
+        <div class="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+            <div class="dropdown-item">
+              <p class="buttons">
+                  <a
+                    href="https://diogoredin.github.io/signin"
+                    class="button is-link is-light is-fullwidth"
+                  >
+                    Sign In
+                  </a>
+                  <a
+                    href="https://diogoredin.github.io/plans"
+                    class="button is-link is-light is-fullwidth"
+                  >
+                    Sign Up
+                  </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div
+      id="open-search"
+      class="level-item search-toggle"
+      role="search"
+      tabindex="0"
+    >
+      <span class="icon is-medium">
+        <i class="fas fa-search fa-lg"></i>
+      </span>
+    </div>
+
+    <div id="dark-mode" class="level-item dark-mode-toggle" tabindex="0">
+      <span class="icon is-medium">
+        <i class="fas fa-moon fa-lg"></i>
+      </span>
+    </div>
+
+    <div
+      id="open-menu"
+      class="level-item menu-mobile-toggle is-hidden-desktop"
+      role="navigation"
+    >
+      <span class="icon is-medium">
+        <i class="fas fa-bars fa-lg"></i>
+      </span>
+    </div>
+  </div>
+</nav>
+				
+	<div class="columns is-vcentered post-header ">
+
+			<div class="column is-one-third">
+				<figure class="image is-3by2">
+					<img class="post-image"
+						srcset="/content/images/size/w300/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg 300w,
+										/content/images/size/w600/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg 600w,
+										/content/images/size/w1000/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg 1000w,
+										/content/images/size/w2000/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg 2000w"
+						sizes="(max-width: 1000px) 400px, 700px"
+						data-src="/content/images/size/w600/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg"
+						src="/content/images/size/w600/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg"
+						alt="How to do good code reviews"
+					/>
+				</figure>
+			</div>
+
+		<div class="column ">
+			<h1 class="post-title">How to do good code reviews</h1>
+
+			<nav class="level post-meta" role="meta">
+				<div class="level-left">
+
+					<p class="authors">
+						<span class="icon">
+							<i class="far fa-user"></i>
+						</span>
+						<a href="/author/diogo/">Diogo Redin</a>
+					</p>
+
+					<p class="date">
+						<span class="icon">
+							<i class="far fa-clock"></i>
+						</span>
+						24 May 2021
+					</p>
+
+					<p class="read-time">
+						<span class="icon">
+							<i class="far fa-hourglass"></i>
+						</span>
+						9 min read
+					</p>
+
+				</div>
+			</nav>
+
+				<div class="is-one-third post-tags tags">
+						<a href="/tag/development/" title="Development" class="tag development button is-link" style="background-color: ;">
+							<span class="icon is-small">
+								<i class="fas fa-hashtag"></i>
+							</span>
+							<strong>Development</strong>
+						</a>
+						<a href="/tag/software-engineering/" title="Software Engineering" class="tag software-engineering button is-link" style="background-color: #f9c74f;">
+							<span class="icon is-small">
+								<i class="fas fa-hashtag"></i>
+							</span>
+							<strong>Software Engineering</strong>
+						</a>
+						<a href="/tag/testing/" title="Testing" class="tag testing button is-link" style="background-color: #f9844a;">
+							<span class="icon is-small">
+								<i class="fas fa-hashtag"></i>
+							</span>
+							<strong>Testing</strong>
+						</a>
+						<a href="/tag/accessibility/" title="Accessibility" class="tag accessibility button is-link" style="background-color: #43aa8b;">
+							<span class="icon is-small">
+								<i class="fas fa-hashtag"></i>
+							</span>
+							<strong>Accessibility</strong>
+						</a>
+						<a href="/tag/getting-started/" title="Getting Started" class="tag getting-started button is-link" style="background-color: #277da1;">
+							<span class="icon is-small">
+								<i class="fas fa-hashtag"></i>
+							</span>
+							<strong>Getting Started</strong>
+						</a>
+				</div>
+
+		</div>
+	</div>
+
+		<div class="social-widget sw-sidebar-fixed sw-style-grow sw-theme-color sw-pos-right sw-shape-round">
+	<ul>
+		<li>
+			<a class="sw-twitter" href="https://twitter.com/share?text=How%20to%20do%20good%20code%20reviews&url=https://diogoredin.github.io/how-to-do-good-code-reviews/" target="_blank" title="Twitter">
+				<i class="fab fa-twitter"></i>
+			</a>
+		</li>
+		<li>
+			<a class="sw-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://diogoredin.github.io/how-to-do-good-code-reviews/" target="_blank" title="Facebook">
+				<i class="fab fa-facebook-f"></i>
+			</a>
+		</li>
+		<li class="is-hidden-desktop">
+			<a class="sw-whatsapp" href="whatsapp://send?text=https://diogoredin.github.io/how-to-do-good-code-reviews/" target="_blank" title="WhatsApp">
+				<i class="fab fa-whatsapp"></i>
+			</a>
+		</li>
+		<li>
+			<a class="sw-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://diogoredin.github.io/how-to-do-good-code-reviews/&title=How%20to%20do%20good%20code%20reviews" target="_blank" title="LinkedIn">
+				<i class="fab fa-linkedin-in"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+		<div class="post tag-development tag-software-engineering tag-testing tag-accessibility tag-getting-started tag-hash-import-2023-01-04-21-40 content">
+			<p>Code reviews can be daunting to make, especially if you are new to the technology or the team you are in. However, code reviews are one of the best opportunities you have to grow as an engineer and help your team move forward. Code reviews should help your team:</p><ul><li>Be aligned on technical solutions</li><li>Improve the architecture of the application</li><li>Improve performance</li><li>Minimise technical debt</li><li>Provide teaching opportunities for all engineers involved</li></ul><p>Code reviews can also help you catch bugs the author didn't, but that responsibility should be mainly on your tests and the use of typed languages. Remember, no bug should reach the quality environment and at the end of the day you are equally responsible for the code you are reviewing.</p><h2 id="what-makes-good-reviews">What makes good reviews</h2><h3 id="timely">Timely</h3><p>Your priority number one as a team member should be to unblock any colleagues with code reviews pending and increase your overall team's productivity. </p><p>This means that if a colleague is struggling with any feedback you have left in their review you should prioritise helping them.</p><p>Being timely also means you should promptly review it again once the author has addressed all of your comments. Pair-programming is a great way to pass on any feedback faster and more effectively too.</p><p><strong>If you have pull requests awaiting for too long, either:</strong></p><p><strong><em>The pull requests are too long and are not being appropriately broken apart - </em></strong>Remember a feature can be composed of various smaller pull requests. Tools like feature flags or multiple feature branches based upon each other can help with this.</p><p><strong><em>The team is not experienced enough with the technology at hand - </em></strong>In this case the first point is even more important, because any novice to a technology might feel overwhelmed with a large diff. Besides this, you can start pair-programming with other engineers on the team, so they also become familiar with the technology and are more comfortable reviewing the code in the future.</p><p><strong><em>The pull request is not seen as a priority by everyone on the team - </em></strong>Sometimes the priorities of the team might not be clear for everyone. This can be addressed by making sure PRs have tasks associated which are visible, discussed and agreed upon before being started.</p><h3 id="professional-and-light-hearted">Professional and light-hearted</h3><p>It's important that you approach every code review with an open mind. This includes:</p><ul><li>Being ready to be challenged on your suggestions and opinions;</li><li>Being able to change your mind when presented with good counter arguments and facts;</li><li>Being able to negotiate trade-offs given various constraints.</li></ul><p>You should also try to keep a positive tone at all times. By maintaining a positive tone I mean:</p><ul><li>Always critique the code instead of the person;</li><li>Use positive vocabulary;</li><li>Formulate the suggestions always as proposals, up for discussion;</li><li>Give praise on the effort or any outstanding solutions;</li><li>Use emojis to make the review more light-hearted.</li></ul><p>You should also avoid using any cursing or slang language. The author might take it badly or feel you are unfriendly or aggressive.</p><h3 id="few-nit-picks">Few nit-picks</h3><p>Unless the other author is new and is still getting used to the team, it's a bad sign if your review contains too many nit-picks. If you find yourself nitpicking too much maybe it's time you introduce some kind of linter on your project or write down some guidelines for future authors.</p><p>You should however ensure your review does not consist of many nit-picks, since they might deviate the author from focusing on more important suggestions. If you find yourself nitpicking too much on someone's code schedule a meeting with them to help them find patterns and strategies they can use to improve.</p><h3 id="empathetic">Empathetic</h3><p>Software Engineering is one big act of empathy: Empathy for the user, empathy for other engineers, empathy for the product.</p><p>The top questions I regularly make myself when reviewing code are the following:</p><blockquote>If I were to implement this, would I do it this way? If not, in which way? Would it bring any benefits or is this approach okay as well?</blockquote><blockquote>Would other engineers understand this code? Can I grasp what the code is doing without looking at any documentation?</blockquote><blockquote>Does this feature have any performance issues? Should there be monitoring tools in place here?</blockquote><blockquote>If I onboarded a new engineer in the team could they extend this feature without much effort?</blockquote><blockquote>Does this code satisfy the product requirements?</blockquote><blockquote>Would a user like this experience? Is it accessible? Is there anything we overlooked in the user experience?</blockquote><blockquote>Does this code follow our guidelines?</blockquote><blockquote>Are we tracking or saving anything we shouldn't? Is the code ethic?</blockquote><h3 id="feasible-and-over-explanatory">Feasible and over-explanatory</h3><p>When I give feedback on a pull request I always ponder three variables: time, effort, and return on investment. I only leave a given suggestion if I believe it can be done without preventing the team from delivering the feature in time.</p><p>The only exception to this rule is if there is a major bug or flaw in the code. In cases I opt for not suggesting something I either leave it as optional in the pull request or discuss it with the author and create a new issue in the backlog for us to tackle later.</p><p>Another good practice is to have the code open and running locally and play around with the code to try out any solution you might want to suggest. This way you can fully reflect upon the repercussions of the suggestion and think twice if they really improve the code or product</p><p>If I face any hardship when implementing a suggestion I'm giving I leave it documented for the author, so they have an easier time implementing it.</p><h3 id="ask-questions">Ask questions</h3><p>If there is something you don't understand in the code you should clarify it right away. If you don't understand something it's possible other engineers won't understand it either and the code should either be improved or documented.</p><h3 id="conventional-comments">Conventional Comments</h3><p>This is a best practice I have adopted since the last year. It's a simple syntax for formatting your review comments that indicates clearly to the author the scope, type, and importance of your comments. I have the website bookmarked and open it when reviewing if I don't remember any of the syntax options.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://conventionalcomments.org/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Conventional Comments</div><div class="kg-bookmark-description">Comments that are easy to grok and grep</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://conventionalcomments.org/favicon.ico" alt=""><span class="kg-bookmark-author">Conventional Comments</span><span class="kg-bookmark-publisher">Paul Slaughter</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://conventionalcomments.org/logo.png" alt=""></div></a></figure><h3 id="platform-features">Platform features</h3><p>You should take full advantage of the platform you are using for reviewing code. For instance, I always:</p><ul><li>Have key take ways in bold,</li><li>Have code samples with appropriate syntax highlighting,</li><li>Mark code suggestions marked as suggestions to produce nice code diffs,</li><li>Mark the comments as resolved / unresolved to keep the pull request organised.</li></ul><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#syntax-highlighting"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Creating and highlighting code blocks - GitHub Docs</div><div class="kg-bookmark-description">Share samples of code with fenced code blocks and enabling syntax highlighting.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://docs.github.com/assets/images/site/favicon.svg" alt=""><span class="kg-bookmark-author">GitHub Docs</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://docs.github.com/assets/images/help/writing/fenced-code-block-rendered.png" alt=""></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.blog/changelog/2020-02-26-multi-line-code-suggestions-beta/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Multi-line code suggestions beta | GitHub Changelog</div><div class="kg-bookmark-description">Multi-line code suggestions beta</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.blog/wp-content/uploads/2019/01/cropped-github-favicon-512.png?fit&#x3D;192%2C192" alt=""><span class="kg-bookmark-author">The GitHub Blog</span><span class="kg-bookmark-publisher">github-blog</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://github.blog/wp-content/uploads/2019/03/blog-card.png?fit&#x3D;5001%2C2626" alt=""></div></a></figure><h2 id="what-steps-to-take-when-reviewing">What steps to take when reviewing</h2><h3 id="read-the-pull-request-and-associated-task">Read the pull request and associated task</h3><p>When doing a code review ensure the task accomplishes everything it set out to do and ensure the author didn't forget to implement anything.</p><p>This is probably the last time you can have a say on how a feature is built or its specifications, so take the chance to analyse it and suggest improvements you believe are essential (without going out-scope).</p><h3 id="run-the-code">Run the code</h3><p>As mentioned above, when reviewing the code I usually checkout the branch and run the code locally. This helps me:</p><ul><li>Ensure the code runs as expected on my machine too (the author didn't forget to document any change to the build phase and dependencies are well specified),</li><li>I can explore and get more familiar with the feature,</li><li>I can do some tests for common pitfalls I might remember,</li><li>I can try out suggestions before giving them to ensure they are feasible,</li><li>If it's a UI implementation I can checkout all spacings and colors are according to the wireframes, same for the user experience requirements.</li></ul><h3 id="analyse-the-tests">Analyse the tests</h3><p>Tests are a form of documentation and should verify the behaviour of the feature. Analysing the tests first guarantees you gain more context of the feature before diving into the implementation. You might come back here afterward to check for any missing tests.</p><p>When reviewing tests I usually check:</p><ul><li>If they are well grouped;</li><li>If their description makes sense;</li><li>If they are isolated and independent;</li><li>If they are reasonably fast;</li><li>If they are repeatable;</li><li>If their phases are clear: preparation, execution and assertion;</li><li>If the expectations are within the scope of the test description;</li><li>If the scope of each test is well delimited and does not try to test too much;</li><li>If the tests fail when the code is broken;</li><li>If there is the possibility they start producing false positives;</li><li>If they are not too coupled with implementation;</li><li>If they are easy to understand.</li></ul><p>I'm an advocate that every line you write should be tested. Sometimes it won't be possible, but you should aim high and have a good effort to coverage ratio, enough to give you confidence in any code changes you might make in the future. When setting up a project it's useful to introduce tools to track the code coverage of your tests.</p><h3 id="analyse-the-implementation">Analyse the implementation</h3><p>When reviewing the implementation I usually review the commits one by one. I usually have both the commit diff and the code open in the IDE. Having the code open helps me make sense of the broader context and ensure the changes actually make sense within the current architecture.</p><p>Regarding the commits ideally, they all focus on the <em>why</em> instead of the <em>how </em>and give out information it would have been hard for the reader to get otherwise. I ensure these are well written and linked to the corresponding task for easier tracking in the future.</p><p>I'm always on the lookout for convoluted code and ensure to leave suggestions when I believe it can be simplified. Naming is hard, but as a rule of thumb, names should be as short as possible. </p><p>If the code is implementing a feature very similar to something that already exists, I ensure the implementation is similar and that we take advantage of the appropriate abstractions. I also ask myself if I would be able to debug the code. If the answer is not, chances are it should be refactored.</p><p>When reviewing the implementation I also keep in mind algorithmic concerns, error handling, monitoring, and evaluate if the core software principles are being followed (within reason), namely:</p><p><strong>KISS -</strong><em> Keep it short and simple.</em></p><p><strong>DRY -</strong><em> Don't repeat yourself.</em></p><p><strong>Single-responsibility principle -</strong> <em>Every module, class or function in an application should have responsibility over a single part of that application functionality, and it should encapsulate that part.</em></p><p><strong>Open–closed principle -</strong> <em>Software entities should be open for extension, but closed for modification.</em></p><p><strong>Liskov substitution principle -</strong> <em><strong>O</strong>bjects of a superclass should be replaceable with objects of its subclasses without breaking the application.</em></p><p><strong>Interface segregation principle -</strong> <em>Many client-specific interfaces are better than one general-purpose interface.</em></p><p><strong>Dependency inversion principle -</strong> <em>One should depend upon abstractions, not concretions.</em></p><p>Besides these, which are universal, you will also want to check specific best practices for the technology you are reviewing (and check the corresponding documentation to clarify any doubts or raise pertinent questions). Sometimes, when I see some code that I suspect might be missing some edge case, I open up the application and test through the scenario.</p><p>In the end, I also check if test descriptions, commit messages, documentation, and comments (if you do them) are written in understandable English since they are all part of the code being developed too.</p><h1 id="conclusion">Conclusion</h1><p>I hope this article has given you a few ideas of practices you can adopt when reviewing pull requests. They mostly reflect what I have learned from both giving and receiving feedback on pull requests.</p><p>I'm constantly learning and evolving, so my opinion on some of these practices might change in the future, in which case I will edit this article or create a follow-up. If you have any comments or suggestions leave them down below. In the future I intend to do an article too on how to open great pull requests, so keep tuned!</p><h1 id="recommended-reads">Recommended reads</h1><p>If you would like to learn more I suggest you read the following articles:</p><ul><li><a href="https://google.github.io/eng-practices/review/reviewer/looking-for.html">Best practices on code reviews by Google</a></li><li><a href="https://blog.palantir.com/code-review-best-practices-19e02780015f">Code reviews best practices by Palantir</a></li><li><a href="https://stackoverflow.blog/2019/09/30/how-to-make-good-code-reviews-better/">How to make good code reviews by </a><a href="https://stackoverflow.blog/author/gorosz/" rel="author">Gergely Orosz</a></li><li><a href="https://phauer.com/2018/code-review-guidelines/">Code review guidelines by Philipp Hauer</a></li><li><a href="https://github.com/jspahrsummers/effective-code-review/blob/main/Effective%20Code%20Review.md">Effective code review by Justin Spahr-Summers</a></li></ul>
+		</div>
+
+		<div class="post-footer">
+				<ul class="authors">
+						<li class="author">
+							<div class="columns is-vcentered is-mobile">
+		<div class="column is-narrow profile-image-column">
+			<figure class="image is-128x128">
+				<!-- Don't display linkable image author in author own page -->
+					<a href="/author/diogo/" title="Diogo Redin" class="author diogo">
+						<img class="profile-image"
+							src="https://www.gravatar.com/avatar/1f476e38af3a41bdd2a7cd6489d34be0?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp"
+							alt="Diogo Redin"
+						/>
+					</a>
+			</figure>
+		</div>
+
+	<div class="column">
+		<h1 class="profile-title">
+				<a href="/author/diogo/" title="Diogo Redin" class="author diogo">Diogo Redin</a>
+		</h1>
+		<ul class="author-links">
+		</ul>
+	</div>
+</div>						</li>
+				</ul>
+
+			<div class="post-comments">
+				<div id="disqus_thread"></div>
+				<script>
+					var disqus_config = function() {
+						this.page.url = 'https://diogoredin.github.io/how-to-do-good-code-reviews/';
+						this.page.identifier = 'ghost-608eeb11b4bcd063d4749952';
+					};
+					(function() {
+						/* Replace 'codewire-1' with your account */
+						var d = document, s = d.createElement('script');
+						s.src = 'https://codewire-1.disqus.com/embed.js';
+						s.setAttribute('data-timestamp', + new Date());
+						(d.head || d.body).appendChild(s);
+					})();
+				</script>
+			</div>
+		</div>
+
+		<section class="posts-related">
+			<h1 class="post-related-title">
+				<span class="icon is-small is-left">
+					<i class="far fa-bookmark"></i>
+				</span>
+				<span>You might also like</span>
+			</h1>
+			<div class="columns">
+					<div class="column is-one-third">
+	<div class="post tag-css tag-accessibility tag-frontend tag-development tag-javascript tag-hash-import-2023-01-04-21-40 box">
+
+
+			<figure class="image is-3by2">
+				<a href="/building-a-vanilla-javascript-css-tooltip/">
+					<img class="post-card-image"
+						srcset="/content/images/size/w300/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 300w,
+										/content/images/size/w600/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 600w,
+										/content/images/size/w1000/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 1000w,
+										/content/images/size/w2000/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 2000w"
+						sizes="(max-width: 1000px) 400px, 700px"
+						data-src="/content/images/size/w600/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg"
+						src="/content/images/size/w600/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg"
+						alt="Building a Vanilla JavaScript &amp; CSS Tooltip"
+						tabindex="0"
+					/>
+				</a>
+			</figure>
+
+		<div class="post-card-content">
+			<h1 class="post-card-title">
+				<a href="/building-a-vanilla-javascript-css-tooltip/">Building a Vanilla JavaScript &amp; CSS Tooltip</a>
+			</h1>
+			<p class="post-card-description">In this article, we are going to implement a tooltip in plain JavaScript and CSS. A tooltip is a message which appears when a cursor is positioned over an icon, image, links, or other elements in order to give more information to the user.</p>
+
+			<nav class="level post-meta" role="meta">
+				<div class="level-left">
+
+						<p class="primary-tag">
+							<a href="/tag/css/" title="CSS" class="tag css button is-link" style="background-color: ;">
+								<span class="icon is-small">
+									<i class="fas fa-hashtag"></i>
+								</span>
+								<strong>CSS</strong>
+							</a>
+						</p>
+
+					<p class="date">
+						<span class="icon">
+							<i class="far fa-clock"></i>
+						</span>
+						Oct 2022
+					</p>
+
+				</div>
+			</nav>
+		</div>
+
+	</div>
+</div>
+					<div class="column is-one-third">
+	<div class="post tag-development tag-software-engineering tag-testing tag-accessibility tag-getting-started tag-hash-import-2023-01-04-21-40 box">
+
+
+			<figure class="image is-3by2">
+				<a href="/how-to-do-good-code-reviews/">
+					<img class="post-card-image"
+						srcset="/content/images/size/w300/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg 300w,
+										/content/images/size/w600/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg 600w,
+										/content/images/size/w1000/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg 1000w,
+										/content/images/size/w2000/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg 2000w"
+						sizes="(max-width: 1000px) 400px, 700px"
+						data-src="/content/images/size/w600/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg"
+						src="/content/images/size/w600/2023/01/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg"
+						alt="How to do good code reviews"
+						tabindex="0"
+					/>
+				</a>
+			</figure>
+
+		<div class="post-card-content">
+			<h1 class="post-card-title">
+				<a href="/how-to-do-good-code-reviews/">How to do good code reviews</a>
+			</h1>
+			<p class="post-card-description">Code reviews can be daunting to make, especially if you are new to the technology or the team you are in. However, code reviews are one of the best opportunities you have to grow as an engineer and help your team move forward.</p>
+
+			<nav class="level post-meta" role="meta">
+				<div class="level-left">
+
+						<p class="primary-tag">
+							<a href="/tag/development/" title="Development" class="tag development button is-link" style="background-color: ;">
+								<span class="icon is-small">
+									<i class="fas fa-hashtag"></i>
+								</span>
+								<strong>Development</strong>
+							</a>
+						</p>
+
+					<p class="date">
+						<span class="icon">
+							<i class="far fa-clock"></i>
+						</span>
+						May 2021
+					</p>
+
+				</div>
+			</nav>
+		</div>
+
+	</div>
+</div>
+					<div class="column is-one-third">
+	<div class="post tag-react tag-react-testing-testing-library tag-testing tag-accessibility tag-frontend tag-software-engineering tag-development tag-getting-started box">
+
+
+			<figure class="image is-3by2">
+				<a href="/getting-started-with-react-testing-library/">
+					<img class="post-card-image"
+						srcset="/content/images/size/w300/2023/01/mickey-o-neil-xL66l--msXU-unsplash.jpg 300w,
+										/content/images/size/w600/2023/01/mickey-o-neil-xL66l--msXU-unsplash.jpg 600w,
+										/content/images/size/w1000/2023/01/mickey-o-neil-xL66l--msXU-unsplash.jpg 1000w,
+										/content/images/size/w2000/2023/01/mickey-o-neil-xL66l--msXU-unsplash.jpg 2000w"
+						sizes="(max-width: 1000px) 400px, 700px"
+						data-src="/content/images/size/w600/2023/01/mickey-o-neil-xL66l--msXU-unsplash.jpg"
+						src="/content/images/size/w600/2023/01/mickey-o-neil-xL66l--msXU-unsplash.jpg"
+						alt="Getting started with React Testing Library"
+						tabindex="0"
+					/>
+				</a>
+			</figure>
+
+		<div class="post-card-content">
+			<h1 class="post-card-title">
+				<a href="/getting-started-with-react-testing-library/">Getting started with React Testing Library</a>
+			</h1>
+			<p class="post-card-description">React Testing Library is a test library that helps us write integration and unit tests for our UI applications by allowing us to render components, perform actions upon them (click, type, check ...), and retrieve any element rendered through accessible and semantic queries.</p>
+
+			<nav class="level post-meta" role="meta">
+				<div class="level-left">
+
+						<p class="primary-tag">
+							<a href="/tag/react/" title="React" class="tag react button is-link" style="background-color: #00a8e8;">
+								<span class="icon is-small">
+									<i class="fas fa-hashtag"></i>
+								</span>
+								<strong>React</strong>
+							</a>
+						</p>
+
+					<p class="date">
+						<span class="icon">
+							<i class="far fa-clock"></i>
+						</span>
+						Apr 2021
+					</p>
+
+				</div>
+			</nav>
+		</div>
+
+	</div>
+</div>
+			</div>
+		</section>
+
+	<div class="progress-wrap">
+		<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+		</svg>
+	</div>
+
+			</div>
+		</section>
+
+		<footer class="footer">
+  <div class="container">
+    <div class="columns is-vcentered">
+
+          <div class="column is-5">
+            <div class="footer-content">
+              <h1>
+                <span class="icon is-small is-left">
+                  <i class="far fa-envelope"></i>
+                </span>
+                <span>Sign Up Newsletter</span>
+              </h1>
+              <p>Get exclusive content delivered to your e-mail for free.</p>
+            </div>
+
+            <form class="members-form" data-members-form="subscribe">
+              <article class="message is-success message-success">
+                <div class="message-body">
+                  <span class="icon has-text-success">
+                    <i class="fas fa-check-circle"></i>
+                  </span>
+                  <span><b>Success</b> - Check your inbox and click the link to confirm.</span>
+                </div>
+              </article>
+
+              <article class="message is-danger message-error">
+                <div class="message-body">
+                  <span class="icon has-text-danger">
+                    <i class="fas fa-times"></i>
+                  </span>
+                  <span><b>Error</b> -  Something went wrong, please try again.</span>
+                </div>
+              </article>
+
+              <div class="field has-addons members-form-controls">
+                <div class="control is-expanded">
+                  <input
+                    class="input"
+                    data-members-email
+                    type="email"
+                    placeholder="Your email address ..."
+                    autocomplete="false"
+                    required
+                  />
+                </div>
+                <div class="control">
+                  <button class="button is-link is-light" type="submit">
+                    <span>Sign Up</span>
+                    <span class="icon is-medium">
+                      <i class="far fa-paper-plane"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="field has-addons members-form-controls-loading">
+                <div class="control is-expanded">
+                  <input class="input" type="email" disabled />
+                </div>
+                <div class="control">
+                  <button
+                    class="button is-link is-light is-loading"
+                    type="submit"
+                  >
+                    <span>Loading</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+      <div class="column">
+        	<ul class="social-networks">
+		<li>
+			<a class="rss" href="https://diogoredin.github.io/rss/">
+				<span class="icon is-medium">
+					<i class="fas fa-2x fa-rss"></i>
+				</span>
+			</a>
+		</li>
+			<li>
+				<a class="linkedin" href="https://www.linkedin.com/in/diogoredin/">
+					<span class="icon is-medium">
+						<i class="fab fa-2x fa-linkedin"></i>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a class="github" href="https://github.com/diogoredin-td">
+					<span class="icon is-medium">
+						<i class="fab fa-2x fa-github"></i>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a class="twitter" href="https://twitter.com/DiogoRedin">
+					<span class="icon is-medium">
+						<i class="fab fa-2x fa-twitter"></i>
+					</span>
+				</a>
+			</li>
+	</ul>
+
+        <p
+          class="has-text-right has-text-left-mobile copyright"
+          role="copyright"
+        >Copyright &copy; Diogo Redin 2023</p>
+        <p class="has-text-right has-text-left-mobile ghost">Published with <a href="https://ghost.org">Ghost</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+		<script>
+   var ghosthunter_key = "56823222ff2e779b58e185954c";
+   var ghost_root_url = "/ghost/api/v2"
+</script>
+	
+		<script type="text/javascript" src="/assets/js/libraries/jquery.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/jquery.lazyloadxt.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/prism.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/katex.min.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/auto-render.min.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/transition.min.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/zoom.min.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/social-widget.min.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/jquery.ghosthunter.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/page-progress.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/main.js?v=587dc81ba9"></script>
+	</body>
+</html>

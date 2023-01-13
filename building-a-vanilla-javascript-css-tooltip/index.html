@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+			<title>Building a Vanilla JavaScript &amp; CSS Tooltip</title>
+
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/bulma.min.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/fontawesome.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/zoom.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/katex.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/prism.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/libraries/social-widget.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/prism-theme.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/pricing-table.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=587dc81ba9" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/dark-mode.css?v=587dc81ba9" id="dark-theme" disabled="disabled" />
+
+		<script>
+			if (localStorage.getItem('mode') === 'dark') {
+				document.getElementById('dark-theme').disabled=false;
+			}
+		</script>
+
+		<meta name="description" content="In this article, we are going to implement a tooltip in plain JavaScript and CSS. A tooltip is a message which appears when a cursor is positioned over an icon, image, links, or other elements in order to give more information to the user." />
+    <link rel="icon" href="https://diogoredin.github.io/content/images/size/w256h256/2023/01/favicon-1.png" type="image/png" />
+    <link rel="canonical" href="https://diogoredin.github.io/building-a-vanilla-javascript-css-tooltip/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="https://diogoredin.github.io/building-a-vanilla-javascript-css-tooltip/amp/" />
+    
+    <meta property="og:site_name" content="Diogo Redin" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Building a Vanilla JavaScript &amp; CSS Tooltip" />
+    <meta property="og:description" content="In this article, we are going to implement a tooltip in plain JavaScript and CSS. A tooltip is a message which appears when a cursor is positioned over an icon, image, links, or other elements in order to give more information to the user." />
+    <meta property="og:url" content="https://diogoredin.github.io/building-a-vanilla-javascript-css-tooltip/" />
+    <meta property="og:image" content="https://diogoredin.github.io/content/images/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg" />
+    <meta property="article:published_time" content="2022-10-14T11:57:27.000Z" />
+    <meta property="article:modified_time" content="2023-01-13T16:44:42.000Z" />
+    <meta property="article:tag" content="CSS" />
+    <meta property="article:tag" content="Accessibility" />
+    <meta property="article:tag" content="Frontend" />
+    <meta property="article:tag" content="Development" />
+    <meta property="article:tag" content="JavaScript" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Building a Vanilla JavaScript &amp; CSS Tooltip" />
+    <meta name="twitter:description" content="In this article, we are going to implement a tooltip in plain JavaScript and CSS. A tooltip is a message which appears when a cursor is positioned over an icon, image, links, or other elements in order to give more information to the user." />
+    <meta name="twitter:url" content="https://diogoredin.github.io/building-a-vanilla-javascript-css-tooltip/" />
+    <meta name="twitter:image" content="https://diogoredin.github.io/content/images/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Diogo Redin" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="CSS, Accessibility, Frontend, Development, JavaScript" />
+    <meta name="twitter:site" content="@ghost" />
+    <meta property="og:image:width" content="1000" />
+    <meta property="og:image:height" content="667" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Diogo Redin",
+        "url": "https://diogoredin.github.io/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://diogoredin.github.io/content/images/2023/01/logo-1.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Diogo Redin",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/1f476e38af3a41bdd2a7cd6489d34be0?s=250&r=x&d=mp",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://diogoredin.github.io/author/diogo/",
+        "sameAs": []
+    },
+    "headline": "Building a Vanilla JavaScript &amp; CSS Tooltip",
+    "url": "https://diogoredin.github.io/building-a-vanilla-javascript-css-tooltip/",
+    "datePublished": "2022-10-14T11:57:27.000Z",
+    "dateModified": "2023-01-13T16:44:42.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://diogoredin.github.io/content/images/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg",
+        "width": 1000,
+        "height": 667
+    },
+    "keywords": "CSS, Accessibility, Frontend, Development, JavaScript",
+    "description": "In this article, we are going to implement a tooltip in plain JavaScript and CSS. A tooltip is a message which appears when a cursor is positioned over an icon, image, links, or other elements in order to give more information to the user.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://diogoredin.github.io/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.26" />
+    <link rel="alternate" type="application/rss+xml" title="Diogo Redin" href="https://diogoredin.github.io/rss/" />
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.22/umd/portal.min.js" data-ghost="https://diogoredin.github.io/" data-key="a0a27cebce30090866293fcff7" data-api="https://diogoredin.github.io/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="a0a27cebce30090866293fcff7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://diogoredin.github.io/" crossorigin="anonymous"></script>
+    <script defer src="/public/cards.min.js?v=587dc81ba9"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=587dc81ba9">
+    <script defer src="/public/member-attribution.min.js?v=587dc81ba9"></script>
+    <style>
+    #user-dropdown { display: none !important; }
+    .posts-related { display: none !important; }
+    .logo img { width: 55px !important; }
+    .kg-bookmark-thumbnail img { max-height: 160px; }
+</style>
+
+<script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(101312754);</script>
+<script async src="//static.getclicky.com/js"></script>
+<style>:root {--ghost-accent-color: #15171A;}</style>
+	</head>
+	<body class="post-template tag-css tag-accessibility tag-frontend tag-development tag-javascript tag-hash-import-2023-01-04-21-40">
+
+			<div id="action-signin-success-false" class="signed-notification notification is-danger is-light">
+				Oops! There was an <strong>issue with the sign in</strong>. Please <a href='https://diogoredin.github.io/signin'>try again</a>.
+				<button class="close-notification delete"></button>
+			</div>
+
+			<div id="action-signup-success-true" class="signed-notification notification is-success is-light">
+				You have <strong>successfully signed up</strong>. You can <a href='https://diogoredin.github.io/signin'>sign in</a> now.
+				<button class="close-notification delete"></button>
+			</div>
+
+			<div id="action-signup-success-false" class="signed-notification notification is-danger is-light">
+				Oops! There was an <strong>issue with the sign up</strong>. Please <a href='https://diogoredin.github.io/signup'>try again</a>.
+				<button class="close-notification delete"></button>
+			</div>
+
+			<div id="action-subscribe-success-true" class="signed-notification notification is-success is-light">
+				You have <strong>successfully subscribed</strong>. Please check your email to confirm.
+				<button class="close-notification delete"></button>
+			</div>
+
+			<div id="action-subscribe-success-false" class="signed-notification notification is-danger is-light">
+				Oops! There was an <strong>issue subscribing</strong>. Please try again.
+				<button class="close-notification delete"></button>
+			</div>
+
+			<div id="stripe-success" class="signed-notification notification is-success is-light">
+				You have <strong>successfully signed up</strong>. You can <a href='https://diogoredin.github.io/signin'>sign in</a> now.
+				<button class="close-notification delete"></button>
+			</div>
+
+		<section class="search-overlay">
+			<div class="container">
+	<div class="close-search-wrapper">
+		<button id="close-search" class="delete is-large"></button>
+	</div>
+
+	<div class="columns is-centered is-mobile">
+		<div class="column is-three-quarters">
+			<form class="search" role="search">
+				<div class="field">
+					<p class="control search-control has-icons-left">
+						<input id="search-field" class="input is-large" type="search" placeholder="Type to Search">
+						<span class="icon is-medium is-left">
+							<i class="fas fa-search"></i>
+						</span>
+					</p>
+				</div>
+			</form>
+
+			<section id="search-results"></section>
+		</div>
+	</div>
+</div>
+		</section>
+
+		<section class="menu-overlay">
+			<div class="container">
+	<div class="close-menu-wrapper">
+		<button id="close-menu" class="delete is-large"></button>
+	</div>
+
+	<div class="columns is-centered">
+		<div class="column is-three-quarters mobile">
+				<ul class="navigation" role="navigation">
+			<li class="">
+				<a href="https://diogoredin.github.io/">
+					Home
+				</a>
+			</li>
+			<li class="">
+				<a href="https://diogoredin.github.io/about/">
+					About
+				</a>
+			</li>
+			<li class="">
+				<a href="https://diogoredin.github.io/projects/">
+					Projects
+				</a>
+			</li>
+			<li class="">
+				<a href="https://drive.google.com/file/d/1MP0Ix8FTi6W8YKL44jpoWYhotm1l6Aq7/view">
+					Resume
+				</a>
+			</li>
+	</ul>
+
+		</div>
+	</div>
+</div>
+		</section>
+
+		<section class="wrapper">
+			<div class="container">
+				<nav class="level is-mobile" role="navigation" aria-label="main navigation">
+  <div class="level-left">
+    <div class="level-item logo" role="logo">
+        <a href="https://diogoredin.github.io"><img src="https://diogoredin.github.io/content/images/2023/01/logo-1.png" /></a>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="level-item is-hidden-touch">
+      	<ul class="navigation" role="navigation">
+			<li class="">
+				<a href="https://diogoredin.github.io/">
+					Home
+				</a>
+			</li>
+			<li class="">
+				<a href="https://diogoredin.github.io/about/">
+					About
+				</a>
+			</li>
+			<li class="">
+				<a href="https://diogoredin.github.io/projects/">
+					Projects
+				</a>
+			</li>
+			<li class="">
+				<a href="https://drive.google.com/file/d/1MP0Ix8FTi6W8YKL44jpoWYhotm1l6Aq7/view">
+					Resume
+				</a>
+			</li>
+	</ul>
+
+    </div>
+
+      <div
+        id="user-dropdown"
+        class="dropdown user-toggle level-item"
+        tabindex="0"
+      >
+        <div id="user-actions" class="dropdown-trigger">
+          <span
+            class="icon is-medium"
+            aria-haspopup="true"
+            aria-controls="dropdown-menu"
+          >
+            <i class="fas fa-user fa-lg"></i>
+          </span>
+        </div>
+        <div class="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+            <div class="dropdown-item">
+              <p class="buttons">
+                  <a
+                    href="https://diogoredin.github.io/signin"
+                    class="button is-link is-light is-fullwidth"
+                  >
+                    Sign In
+                  </a>
+                  <a
+                    href="https://diogoredin.github.io/plans"
+                    class="button is-link is-light is-fullwidth"
+                  >
+                    Sign Up
+                  </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div
+      id="open-search"
+      class="level-item search-toggle"
+      role="search"
+      tabindex="0"
+    >
+      <span class="icon is-medium">
+        <i class="fas fa-search fa-lg"></i>
+      </span>
+    </div>
+
+    <div id="dark-mode" class="level-item dark-mode-toggle" tabindex="0">
+      <span class="icon is-medium">
+        <i class="fas fa-moon fa-lg"></i>
+      </span>
+    </div>
+
+    <div
+      id="open-menu"
+      class="level-item menu-mobile-toggle is-hidden-desktop"
+      role="navigation"
+    >
+      <span class="icon is-medium">
+        <i class="fas fa-bars fa-lg"></i>
+      </span>
+    </div>
+  </div>
+</nav>
+				
+	<div class="columns is-vcentered post-header ">
+
+			<div class="column is-one-third">
+				<figure class="image is-3by2">
+					<img class="post-image"
+						srcset="/content/images/size/w300/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 300w,
+										/content/images/size/w600/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 600w,
+										/content/images/size/w1000/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 1000w,
+										/content/images/size/w2000/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 2000w"
+						sizes="(max-width: 1000px) 400px, 700px"
+						data-src="/content/images/size/w600/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg"
+						src="/content/images/size/w600/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg"
+						alt="Building a Vanilla JavaScript &amp; CSS Tooltip"
+					/>
+				</figure>
+			</div>
+
+		<div class="column ">
+			<h1 class="post-title">Building a Vanilla JavaScript &amp; CSS Tooltip</h1>
+
+			<nav class="level post-meta" role="meta">
+				<div class="level-left">
+
+					<p class="authors">
+						<span class="icon">
+							<i class="far fa-user"></i>
+						</span>
+						<a href="/author/diogo/">Diogo Redin</a>
+					</p>
+
+					<p class="date">
+						<span class="icon">
+							<i class="far fa-clock"></i>
+						</span>
+						14 October 2022
+					</p>
+
+					<p class="read-time">
+						<span class="icon">
+							<i class="far fa-hourglass"></i>
+						</span>
+						9 min read
+					</p>
+
+				</div>
+			</nav>
+
+				<div class="is-one-third post-tags tags">
+						<a href="/tag/css/" title="CSS" class="tag css button is-link" style="background-color: ;">
+							<span class="icon is-small">
+								<i class="fas fa-hashtag"></i>
+							</span>
+							<strong>CSS</strong>
+						</a>
+						<a href="/tag/accessibility/" title="Accessibility" class="tag accessibility button is-link" style="background-color: #43aa8b;">
+							<span class="icon is-small">
+								<i class="fas fa-hashtag"></i>
+							</span>
+							<strong>Accessibility</strong>
+						</a>
+						<a href="/tag/frontend/" title="Frontend" class="tag frontend button is-link" style="background-color: #f00000;">
+							<span class="icon is-small">
+								<i class="fas fa-hashtag"></i>
+							</span>
+							<strong>Frontend</strong>
+						</a>
+						<a href="/tag/development/" title="Development" class="tag development button is-link" style="background-color: ;">
+							<span class="icon is-small">
+								<i class="fas fa-hashtag"></i>
+							</span>
+							<strong>Development</strong>
+						</a>
+						<a href="/tag/javascript/" title="JavaScript" class="tag javascript button is-link" style="background-color: #42CED0;">
+							<span class="icon is-small">
+								<i class="fas fa-hashtag"></i>
+							</span>
+							<strong>JavaScript</strong>
+						</a>
+				</div>
+
+		</div>
+	</div>
+
+		<div class="social-widget sw-sidebar-fixed sw-style-grow sw-theme-color sw-pos-right sw-shape-round">
+	<ul>
+		<li>
+			<a class="sw-twitter" href="https://twitter.com/share?text=Building%20a%20Vanilla%20JavaScript%20%26%20CSS%20Tooltip&url=https://diogoredin.github.io/building-a-vanilla-javascript-css-tooltip/" target="_blank" title="Twitter">
+				<i class="fab fa-twitter"></i>
+			</a>
+		</li>
+		<li>
+			<a class="sw-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://diogoredin.github.io/building-a-vanilla-javascript-css-tooltip/" target="_blank" title="Facebook">
+				<i class="fab fa-facebook-f"></i>
+			</a>
+		</li>
+		<li class="is-hidden-desktop">
+			<a class="sw-whatsapp" href="whatsapp://send?text=https://diogoredin.github.io/building-a-vanilla-javascript-css-tooltip/" target="_blank" title="WhatsApp">
+				<i class="fab fa-whatsapp"></i>
+			</a>
+		</li>
+		<li>
+			<a class="sw-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://diogoredin.github.io/building-a-vanilla-javascript-css-tooltip/&title=Building%20a%20Vanilla%20JavaScript%20%26%20CSS%20Tooltip" target="_blank" title="LinkedIn">
+				<i class="fab fa-linkedin-in"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+		<div class="post tag-css tag-accessibility tag-frontend tag-development tag-javascript tag-hash-import-2023-01-04-21-40 content">
+			<!--kg-card-begin: markdown--><p>In this article, we are going to implement a tooltip in plain JavaScript and CSS. A tooltip is a message which appears when a cursor is positioned over an icon, image, links, or other elements in order to give more information to the user. These are usually non-interactble and not essential in a page.</p>
+<h2 id="defining-the-component-api">Defining the component API</h2>
+<p>The first step for building this tooltip will be to create a HTML, CSS and JavaScript file. Alternatively you can follow along by creating a CodePen.</p>
+<p>Our base <code>index.html</code> file looks something like this:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta
+      name=&quot;viewport&quot;
+      content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;
+    /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./style.css&quot; /&gt;
+    &lt;title&gt;Vanilla JavaScript and CSS Tooltip&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;main&gt;
+      &lt;p&gt;
+        Geckos are a group of usually small, usually nocturnal lizards. They are
+        found on every continent except Australia.
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        Many species of gecko have adhesive toe pads which enable them to climb
+        walls and even windows.
+      &lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;script src=&quot;./main.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>It includes two paragraphs where we will eventually place some tooltips and links to our stylesheet and main JavaScript file, where will have the tooltip logic.</p>
+<p>Whenever developing a component, my first question is which API I would like it to have. My assumption is that a tooltip should be lean (without much boilerplate code), easy to use (and wrap around content) and accessible. Given these conditions we can start with something like:</p>
+<pre><code class="language-html">&lt;span data-tooltip=&quot;Hello world!&quot;&gt;Australia&lt;/span&gt;.
+</code></pre>
+<p>This snippet is not yet accessible (actually there isn't even a tooltip here yet), but we can do that with a bit of JavaScript.</p>
+<p>Before we get to it, we can add some styling to the page, so we see the tooltips better:</p>
+<pre><code class="language-css">main {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5rem;
+  font-size: 16px;
+  padding: 5%;
+}
+
+[data-tooltip] {
+  text-decoration: underline;
+}
+</code></pre>
+<p>And we can actually add some tooltips, with varying amounts of content. Since it should be possible to use tooltips inside paragraphs we opt for <code>&lt;span&gt;</code>, which is a valid child of <code>&lt;p&gt;</code> and displays itself as inline by default, only taking as much space as it's content requires. Using <code>data-tooltip</code> allow us to store extra information without other hacks such as non-standard attributes, or extra properties on the DOM.</p>
+<pre><code class="language-html">&lt;main&gt;
+  &lt;p&gt;
+    Geckos are a group of usually small, usually nocturnal lizards. They are
+    found on every continent except
+    &lt;span
+      data-tooltip=&quot;Geckos are a group of usually small, usually nocturnal lizards.&quot;
+      &gt;Australia&lt;/span
+    &gt;.
+  &lt;/p&gt;
+
+  &lt;p&gt;
+    Many species of gecko have
+    &lt;span data-tooltip=&quot;Hi there!&quot;&gt;adhesive&lt;/span&gt; toe pads which enable them to
+    climb walls and even windows.
+  &lt;/p&gt;
+&lt;/main&gt;
+</code></pre>
+<h2 id="adding-tooltips-to-our-html">Adding tooltips to our HTML</h2>
+<p>So far we only have spans indicating where tooltips should be placed and with which content, so our next step should be to add them to our HTML. This will allow us to properly build the tooltip, but also expose them to search engine robots and make them accessible to screen readers.</p>
+<pre><code class="language-javascript">const tooltips = document.querySelectorAll(&quot;[data-tooltip]&quot;);
+</code></pre>
+<p><code>querySelectorAll</code> allows us to get all &quot;tooltips&quot; that should be placed in the document using a CSS selector. It gives us back an iterable HTML collection with all the elements found.</p>
+<pre><code class="language-javascript">tooltips.forEach((trigger) =&gt; {
+  let tooltip = document.createElement(&quot;div&quot;);
+
+  tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+  tooltip.setAttribute(&quot;inert&quot;, true);
+  tooltip.textContent = trigger.dataset.tooltip;
+
+  trigger.appendChild(tooltip);
+});
+</code></pre>
+<p>We can take the elements and for each of them add an actual accessible tooltip:</p>
+<ol>
+<li><code>role=tooltip</code> so screen readers know what the content is;</li>
+<li><code>inert</code> because the user should not be able to interact with it (otherwise, it would be a popup);</li>
+</ol>
+<p>After loading the page our HTML should have the following structure:</p>
+<pre><code class="language-html">&lt;main&gt;
+  &lt;p&gt;
+    Geckos are a group of usually small, usually nocturnal lizards. They are
+    found on every continent except
+    &lt;span
+      data-tooltip=&quot;Geckos are a group of usually small, usually nocturnal lizards.&quot;
+    &gt;
+      Australia
+      &lt;div role=&quot;tooltip&quot; inert=&quot;true&quot;&gt;
+        Geckos are a group of usually small, usually nocturnal lizards.
+      &lt;/div&gt; &lt;/span
+    &gt;.
+  &lt;/p&gt;
+
+  &lt;p&gt;
+    Many species of gecko have
+    &lt;span data-tooltip=&quot;Hi there!&quot;&gt;
+      adhesive
+      &lt;div role=&quot;tooltip&quot; inert=&quot;true&quot;&gt;Hi there!&lt;/div&gt;
+    &lt;/span&gt;
+    toe pads which enable them to climb walls and even windows.
+  &lt;/p&gt;
+&lt;/main&gt;
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="styling-the-tooltip">Styling the Tooltip</h2>
+<p>In order to be able to see the tooltip in our page we can start by applying some width, height and positioning. The <code>width: auto</code> allows the tooltip to grow in size as it wants, while never exceeding the size of it's parent (this takes into account margins and padding). We however set <code>max-width: 20%</code> to ensure that a tooltip placed in the middle of the container doesn't become too large.</p>
+<p>In terms of height, it's also set to <code>height: auto</code> so the tooltip can grow in height in case there is too much content. <code>word-wrap</code> is also left at it's default value (<code>normal</code>) so text breaks down into multiple lines. <code>min-height: 25px</code> ensures the tooltip always has an appropriate height, and <code>line-height</code> of the same size ensures a single line is displayed aligned in the middle. <code>font-size: 1rem</code> applies 1x the font size set in the root element of the page, which is good for accessibility because this is affected by what the <em>font-size</em> the user sets in their browser.</p>
+<p>We apply a small margin at the top, so the tooltip is not too close to the content and padding as well, so there is space between the borders of the tooltip and the content. Most tooltips have a reduced opacity but only for the background, because the text should still have a good contrast. For this we can use a <code>rgba</code> value (red, green, blue, alpha), where the last value indicates the opacity of the color. This allows us to only apply opacity to the background and not the content. Lastly <code>border-radius</code> applies rounded corners to the element equally.</p>
+<pre><code class="language-css">[role=&quot;tooltip&quot;] {
+  width: auto;
+  max-width: 20%;
+  height: auto;
+  min-height: 25px;
+  line-height: 25px;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px 15px;
+}
+</code></pre>
+<blockquote>
+<p>Note: Right now the tooltip is always displayed, we will handle the displaying and hiding in a further section.</p>
+</blockquote>
+<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://diogoredin.github.io/content/images/2023/01/Screenshot-2022-10-14-at-13.12.31.png" class="kg-image" alt loading="lazy" width="2000" height="525" srcset="https://diogoredin.github.io/content/images/size/w600/2023/01/Screenshot-2022-10-14-at-13.12.31.png 600w, https://diogoredin.github.io/content/images/size/w1000/2023/01/Screenshot-2022-10-14-at-13.12.31.png 1000w, https://diogoredin.github.io/content/images/size/w1600/2023/01/Screenshot-2022-10-14-at-13.12.31.png 1600w, https://diogoredin.github.io/content/images/2023/01/Screenshot-2022-10-14-at-13.12.31.png 2000w" sizes="(min-width: 720px) 720px"><figcaption>Our styled tooltip at the end of this article</figcaption></figure><!--kg-card-begin: markdown--><h2 id="positioning-the-tooltip">Positioning the Tooltip</h2>
+<p>Now that we have some basic styles we can actually position the tooltip correctly. Most of the times the desired position is in the middle of the hovered element, so that's what we are going to do.</p>
+<p>First we attach an event handler to detect when the mouse enters an element that should display a tooltip. The <code>mouseenter</code> event is used because it's only triggered when the mouse pointer enters the div element, while the <code>mouseover</code> event is triggered when the mouse pointer enters the div element or its child elements (which would include the tooltip itself).</p>
+<p>Once the event is triggered we try to find the tooltip nested inside using a <code>querySelector</code> again but now for a single element. <code>getBoundingClientRect</code> returns <code>x</code>, <code>y</code> referent to the position of the trigger element (e.g. a word) in the viewport and <code>width</code> and <code>height</code> of the trigger element.</p>
+<p>Using this information and by also applying <code>position: absolute</code> in it's CSS, we firstly position the element at the start of the word. By summing half of the width of the word, we then position the start of the tooltip at the middle of the word. Because we actually want the tooltip to start before the middle, so their middles' coincide we apply a transformation of <code>transform: translateX(-50%)</code>. The schema below should help you understand the positioning better.</p>
+<pre><code class="language-javascript">const displayTooltip = (e) =&gt; {
+  const trigger = e.target;
+  const tooltip = trigger.querySelector(&quot;[role=tooltip]&quot;);
+
+  const { x, y, width, height } = trigger.getBoundingClientRect();
+  tooltip.style.left = `${Math.floor(x + width / 2)}px`;
+  tooltip.style.top = `${Math.floor(y + height)}px`;
+};
+
+tooltips.forEach((trigger) =&gt; {
+	...
+
+  trigger.appendChild(tooltip);
+
+	trigger.addEventListener(&quot;mouseenter&quot;, displayTooltip);
+});
+</code></pre>
+<pre><code class="language-css">[role=&quot;tooltip&quot;] {
+	...
+  position: absolute;
+  transform: translateX(-50%);
+}
+</code></pre>
+<!--kg-card-end: markdown--><figure class="kg-card kg-image-card"><img src="https://diogoredin.github.io/content/images/2023/01/positioning_tooltip-1.png" class="kg-image" alt loading="lazy" width="858" height="1004" srcset="https://diogoredin.github.io/content/images/size/w600/2023/01/positioning_tooltip-1.png 600w, https://diogoredin.github.io/content/images/2023/01/positioning_tooltip-1.png 858w" sizes="(min-width: 720px) 720px"></figure><!--kg-card-begin: markdown--><h2 id="fading-in-the-tooltip">Fading in the Tooltip</h2>
+<p>Until now our tooltips are always displayed, and the <code>mouseenter</code> event is just applying the correct positioning. For tooltips the desired behavior is that they are hidden by default and only displayed after the user has spent some time with their mouse over the element. Tooltips also usually have a fade-in effect so they are more subtle in their appearance. In order to implement this the best property to manipulate is the <code>opacity</code>, while keeping the other display properties intact.</p>
+<p>We will start by implementing the fade-in effect. The following CSS hides the tooltips by default, while keeping them present in the layout (so there are no jumps between elements on hover):</p>
+<pre><code class="language-css">[role=&quot;tooltip&quot;] {
+  opacity: 0;
+}
+</code></pre>
+<p>The transition property here indicates that whenever the <code>opacity</code> property changes it should be increased following a <code>ease</code> function (which is the default and specifies a transition effect with a slow start, then fast and then slow again). This animation takes place for <code>0.1s</code> and gives an effect of fade-in to the tooltip.</p>
+<pre><code class="language-css">[role=&quot;tooltip&quot;].active {
+  opacity: 1;
+  transition: opacity 0.1s;
+}
+</code></pre>
+<p>As you saw above, the opacity is only applied when the tooltip is considered active, so we need to add this class to our tooltip when it's hovered to actually apply the CSS:</p>
+<pre><code class="language-javascript">const displayTooltip = (e) =&gt; {
+  const trigger = e.target;
+  const tooltip = trigger.querySelector(&quot;[role=tooltip]&quot;);
+
+	...
+
+  tooltip.classList.add(&quot;active&quot;);
+};
+
+const hideTooltip = (e) =&gt; {
+  const tooltip = e.target.querySelector(&quot;[role=tooltip]&quot;);
+  tooltip.classList.remove(&quot;active&quot;);
+};
+
+tooltips.forEach((trigger) =&gt; {
+  ...
+
+  trigger.appendChild(tooltip);
+
+	trigger.addEventListener(&quot;mouseenter&quot;, displayTooltip);
+  trigger.addEventListener(&quot;mouseleave&quot;, hideTooltip);
+});
+</code></pre>
+<p>Now that the tooltips have a fade-in effect we want to change them so they are only displayed after the user has spent a certain amount with their mouse over the element. A good amount of time I have seen for these animations is usually <code>300ms</code> but feel free to use any other you prefer.</p>
+<p>Here we can opt for creating an anonymous function that wraps the <code>displayTooltip</code> and delays it's call. This allows us to keep the logic for displaying the tooltip decoupled from the fact we want to wait some time before displaying it.</p>
+<pre><code class="language-javascript">const DELAY = 300;
+let tooltipTimer = null;
+
+tooltips.forEach((trigger) =&gt; {
+	...
+
+  trigger.addEventListener(&quot;mouseenter&quot;, (e) =&gt; {
+    clearTimeout(tooltipTimer);
+
+    tooltipTimer = setTimeout(() =&gt; {
+      displayTooltip(e);
+    }, DELAY);
+  });
+
+  trigger.addEventListener(&quot;mouseleave&quot;, (e) =&gt; {
+    clearTimeout(tooltipTimer);
+    hideTooltip(e);
+  });
+});
+</code></pre>
+<p>An important detail in this implementation is the cancellation of any previous display of a tooltip that might have been triggered. The reasoning is that we only want to display one tooltip at a time, so any previous tooltip scheduled animations should be cancelled.</p>
+<p>Regarding the <code>mouseleave</code> we also cancel the animation in case the user has left the element (i.e. word) before the <code>300ms</code>. Forgetting to do this usually leads to memory leaks and dangling events in your application (which can be tricky in your test suites).</p>
+<h2 id="adding-a-triangular-tip-to-the-tooltip">Adding a triangular &quot;tip&quot; to the Tooltip</h2>
+<p>As a nice extra we can add a nice triangular tip to our tooltip (no pun intended)! To do this we can add a pseudo element to our tooltip that has a triangle shape. Let's start by adding a pesudo element to the tooltip and positioning it:</p>
+<pre><code class="language-css">[role=&quot;tooltip&quot;]::before {
+  content: &quot;&quot;;
+  position: absolute;
+  margin-top: -20px;
+  transform: translateX(-50%);
+  left: 50%;
+}
+</code></pre>
+<p>Again we position the element absolutely, so it's positioned relative to its first positioned ancestor element, i.e. the tooltip. We apply <code>margin-top: -20px</code> because we want to display it at the top of the tooltip, and <code>20px</code> is the padding of the tooltip plus the &quot;height&quot; of the triangle (it will also be <code>10px</code>).</p>
+<p>In order to center the triangle in the middle of the tooltip, first we make it's start be at the middle of the tooltip by using <code>left: 50%</code>. And after we apply <code>translateX(-50%)</code> to push it's start a little bit before so the middles coincide.</p>
+<p>This works because the <code>left</code> property is based on the size of the parent element, i.e. the tooltip and the <code>transform</code> property is based on the size of the target element, i.e. the triangle,</p>
+<pre><code class="language-css">[role=&quot;tooltip&quot;]::before {
+	...
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.7);
+}
+</code></pre>
+<p>In order to form the actual triangle, we use an old trick where by setting no width and height and just the bottom border we get a triangle. The actual width and height of the arrow is determined by the width of the border. For a great explanation on this check this article on <a href="https://css-tricks.com/snippets/css/css-triangle/">CSS tricks</a>.</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: html--><p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="DELgOJ" data-user="chriscoyier" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/chriscoyier/pen/DELgOJ">
+  Animation to Explain CSS Triangles</a> by Chris Coyier  (<a href="https://codepen.io/chriscoyier">@chriscoyier</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script><!--kg-card-end: html--><h2 id="final-result">Final Result</h2><!--kg-card-begin: html--><p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="YzLaPYd" data-user="diogoredin" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/diogoredin/pen/YzLaPYd">
+  JavaScript &amp; CSS Tooltip</a> by Diogo Redin (<a href="https://codepen.io/diogoredin">@diogoredin</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script><!--kg-card-end: html--><!--kg-card-begin: markdown--><h2 id="final-notes">Final notes</h2>
+<p>Some of the solutions here presented come from an amazing tutorial from the Chrome development team on how to develop a tooltip. The video includes some extra ideas on how to improve the accessibility of tooltips so I recommend you watch it:</p>
+<!--kg-card-end: markdown--><figure class="kg-card kg-embed-card kg-card-hascaption"><iframe width="200" height="113" src="https://www.youtube.com/embed/Y5EIC_UyPME?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Thinking on ways to solve TOOLTIPS"></iframe><figcaption>Tips on Tooltips accessibility</figcaption></figure>
+		</div>
+
+		<div class="post-footer">
+				<ul class="authors">
+						<li class="author">
+							<div class="columns is-vcentered is-mobile">
+		<div class="column is-narrow profile-image-column">
+			<figure class="image is-128x128">
+				<!-- Don't display linkable image author in author own page -->
+					<a href="/author/diogo/" title="Diogo Redin" class="author diogo">
+						<img class="profile-image"
+							src="https://www.gravatar.com/avatar/1f476e38af3a41bdd2a7cd6489d34be0?s&#x3D;250&amp;r&#x3D;x&amp;d&#x3D;mp"
+							alt="Diogo Redin"
+						/>
+					</a>
+			</figure>
+		</div>
+
+	<div class="column">
+		<h1 class="profile-title">
+				<a href="/author/diogo/" title="Diogo Redin" class="author diogo">Diogo Redin</a>
+		</h1>
+		<ul class="author-links">
+		</ul>
+	</div>
+</div>						</li>
+				</ul>
+
+			<div class="post-comments">
+				<div id="disqus_thread"></div>
+				<script>
+					var disqus_config = function() {
+						this.page.url = 'https://diogoredin.github.io/building-a-vanilla-javascript-css-tooltip/';
+						this.page.identifier = 'ghost-6349411e59bf66378acc1343';
+					};
+					(function() {
+						/* Replace 'codewire-1' with your account */
+						var d = document, s = d.createElement('script');
+						s.src = 'https://codewire-1.disqus.com/embed.js';
+						s.setAttribute('data-timestamp', + new Date());
+						(d.head || d.body).appendChild(s);
+					})();
+				</script>
+			</div>
+		</div>
+
+		<section class="posts-related">
+			<h1 class="post-related-title">
+				<span class="icon is-small is-left">
+					<i class="far fa-bookmark"></i>
+				</span>
+				<span>You might also like</span>
+			</h1>
+			<div class="columns">
+					<div class="column is-one-third">
+	<div class="post tag-css tag-accessibility tag-frontend tag-development tag-javascript tag-hash-import-2023-01-04-21-40 box">
+
+
+			<figure class="image is-3by2">
+				<a href="/building-a-vanilla-javascript-css-tooltip/">
+					<img class="post-card-image"
+						srcset="/content/images/size/w300/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 300w,
+										/content/images/size/w600/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 600w,
+										/content/images/size/w1000/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 1000w,
+										/content/images/size/w2000/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg 2000w"
+						sizes="(max-width: 1000px) 400px, 700px"
+						data-src="/content/images/size/w600/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg"
+						src="/content/images/size/w600/2023/01/absolutvision-WYd_PkCa1BY-unsplash.jpg"
+						alt="Building a Vanilla JavaScript &amp; CSS Tooltip"
+						tabindex="0"
+					/>
+				</a>
+			</figure>
+
+		<div class="post-card-content">
+			<h1 class="post-card-title">
+				<a href="/building-a-vanilla-javascript-css-tooltip/">Building a Vanilla JavaScript &amp; CSS Tooltip</a>
+			</h1>
+			<p class="post-card-description">In this article, we are going to implement a tooltip in plain JavaScript and CSS. A tooltip is a message which appears when a cursor is positioned over an icon, image, links, or other elements in order to give more information to the user.</p>
+
+			<nav class="level post-meta" role="meta">
+				<div class="level-left">
+
+						<p class="primary-tag">
+							<a href="/tag/css/" title="CSS" class="tag css button is-link" style="background-color: ;">
+								<span class="icon is-small">
+									<i class="fas fa-hashtag"></i>
+								</span>
+								<strong>CSS</strong>
+							</a>
+						</p>
+
+					<p class="date">
+						<span class="icon">
+							<i class="far fa-clock"></i>
+						</span>
+						Oct 2022
+					</p>
+
+				</div>
+			</nav>
+		</div>
+
+	</div>
+</div>
+					<div class="column is-one-third">
+	<div class="post tag-frontend tag-react tag-css tag-tailwind tag-styled-components tag-hash-import-2023-01-04-21-40 box">
+
+
+			<figure class="image is-3by2">
+				<a href="/how-i-like-to-use-tailwind/">
+					<img class="post-card-image"
+						srcset="/content/images/size/w300/2023/01/patrick-ryan-3kUIaB2EPp8-unsplash.jpg 300w,
+										/content/images/size/w600/2023/01/patrick-ryan-3kUIaB2EPp8-unsplash.jpg 600w,
+										/content/images/size/w1000/2023/01/patrick-ryan-3kUIaB2EPp8-unsplash.jpg 1000w,
+										/content/images/size/w2000/2023/01/patrick-ryan-3kUIaB2EPp8-unsplash.jpg 2000w"
+						sizes="(max-width: 1000px) 400px, 700px"
+						data-src="/content/images/size/w600/2023/01/patrick-ryan-3kUIaB2EPp8-unsplash.jpg"
+						src="/content/images/size/w600/2023/01/patrick-ryan-3kUIaB2EPp8-unsplash.jpg"
+						alt="How I like to use Tailwind"
+						tabindex="0"
+					/>
+				</a>
+			</figure>
+
+		<div class="post-card-content">
+			<h1 class="post-card-title">
+				<a href="/how-i-like-to-use-tailwind/">How I like to use Tailwind</a>
+			</h1>
+			<p class="post-card-description">The first time I visited Tailwind’s website I was really fascinated by its clean design and numerous code samples, ready to be used. My main interest in Tailwind wasn’t its value proposition to replace CSS, but the ability to build really quick prototypes for SaaS ideas.</p>
+
+			<nav class="level post-meta" role="meta">
+				<div class="level-left">
+
+						<p class="primary-tag">
+							<a href="/tag/frontend/" title="Frontend" class="tag frontend button is-link" style="background-color: #f00000;">
+								<span class="icon is-small">
+									<i class="fas fa-hashtag"></i>
+								</span>
+								<strong>Frontend</strong>
+							</a>
+						</p>
+
+					<p class="date">
+						<span class="icon">
+							<i class="far fa-clock"></i>
+						</span>
+						Dec 2021
+					</p>
+
+				</div>
+			</nav>
+		</div>
+
+	</div>
+</div>
+			</div>
+		</section>
+
+	<div class="progress-wrap">
+		<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+		</svg>
+	</div>
+
+			</div>
+		</section>
+
+		<footer class="footer">
+  <div class="container">
+    <div class="columns is-vcentered">
+
+          <div class="column is-5">
+            <div class="footer-content">
+              <h1>
+                <span class="icon is-small is-left">
+                  <i class="far fa-envelope"></i>
+                </span>
+                <span>Sign Up Newsletter</span>
+              </h1>
+              <p>Get exclusive content delivered to your e-mail for free.</p>
+            </div>
+
+            <form class="members-form" data-members-form="subscribe">
+              <article class="message is-success message-success">
+                <div class="message-body">
+                  <span class="icon has-text-success">
+                    <i class="fas fa-check-circle"></i>
+                  </span>
+                  <span><b>Success</b> - Check your inbox and click the link to confirm.</span>
+                </div>
+              </article>
+
+              <article class="message is-danger message-error">
+                <div class="message-body">
+                  <span class="icon has-text-danger">
+                    <i class="fas fa-times"></i>
+                  </span>
+                  <span><b>Error</b> -  Something went wrong, please try again.</span>
+                </div>
+              </article>
+
+              <div class="field has-addons members-form-controls">
+                <div class="control is-expanded">
+                  <input
+                    class="input"
+                    data-members-email
+                    type="email"
+                    placeholder="Your email address ..."
+                    autocomplete="false"
+                    required
+                  />
+                </div>
+                <div class="control">
+                  <button class="button is-link is-light" type="submit">
+                    <span>Sign Up</span>
+                    <span class="icon is-medium">
+                      <i class="far fa-paper-plane"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="field has-addons members-form-controls-loading">
+                <div class="control is-expanded">
+                  <input class="input" type="email" disabled />
+                </div>
+                <div class="control">
+                  <button
+                    class="button is-link is-light is-loading"
+                    type="submit"
+                  >
+                    <span>Loading</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+      <div class="column">
+        	<ul class="social-networks">
+		<li>
+			<a class="rss" href="https://diogoredin.github.io/rss/">
+				<span class="icon is-medium">
+					<i class="fas fa-2x fa-rss"></i>
+				</span>
+			</a>
+		</li>
+			<li>
+				<a class="linkedin" href="https://www.linkedin.com/in/diogoredin/">
+					<span class="icon is-medium">
+						<i class="fab fa-2x fa-linkedin"></i>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a class="github" href="https://github.com/diogoredin-td">
+					<span class="icon is-medium">
+						<i class="fab fa-2x fa-github"></i>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a class="twitter" href="https://twitter.com/DiogoRedin">
+					<span class="icon is-medium">
+						<i class="fab fa-2x fa-twitter"></i>
+					</span>
+				</a>
+			</li>
+	</ul>
+
+        <p
+          class="has-text-right has-text-left-mobile copyright"
+          role="copyright"
+        >Copyright &copy; Diogo Redin 2023</p>
+        <p class="has-text-right has-text-left-mobile ghost">Published with <a href="https://ghost.org">Ghost</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+		<script>
+   var ghosthunter_key = "56823222ff2e779b58e185954c";
+   var ghost_root_url = "/ghost/api/v2"
+</script>
+	
+		<script type="text/javascript" src="/assets/js/libraries/jquery.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/jquery.lazyloadxt.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/prism.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/katex.min.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/auto-render.min.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/transition.min.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/zoom.min.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/social-widget.min.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/libraries/jquery.ghosthunter.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/page-progress.js?v=587dc81ba9"></script>
+		<script type="text/javascript" src="/assets/js/main.js?v=587dc81ba9"></script>
+	</body>
+</html>
